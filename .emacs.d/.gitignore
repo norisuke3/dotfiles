@@ -1,0 +1,16 @@
+bookmarks
+auto-save-list/
+elpa/*
+url/*
+auto-install/
+eshell/
+session.*
+ac-comphist.dat
+anything-c-adaptive-history
+tramp
+recentf
+kkcrc
+places
+ido.last
+smex-items
+network-security.data
