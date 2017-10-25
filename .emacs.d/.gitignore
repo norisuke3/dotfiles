@@ -14,3 +14,5 @@ places
 ido.last
 smex-items
 network-security.data
+.bm-repository
+*.elc

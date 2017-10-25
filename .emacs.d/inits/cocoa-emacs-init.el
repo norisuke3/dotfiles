@@ -18,6 +18,24 @@
          (left . 100)
          )
        default-frame-alist))
+(setq initial-frame-alist default-frame-alist)
 
 ;; /C-z でウィンドウが最小化するのを止める
 (put 'suspend-frame 'disabled t)
+
+;; MacOS の finder を 'z' で起動する
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map "z" 'dired-fiber-find)))
+
+(defun dired-fiber-find ()
+  (interactive)
+  (let ((file (dired-get-filename)))
+    (if (file-directory-p file)
+        (start-process "finder" "mac-finder" "open" file))))
+
+;; font 色設定
+(set-face-foreground 'font-lock-comment-face "chartreuse4")
+(set-face-foreground 'font-lock-string-face "VioletRed")
+;;(set-fontset-font t 'japanese-jisx0208 (font-spec :family "hirakaku_w3"))
+;;(set-default-font "hirakaku_w6:pixelsize=12:spacing=0")

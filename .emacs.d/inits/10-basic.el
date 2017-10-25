@@ -1,6 +1,4 @@
-;; wdired
-(require 'wdired)
-(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+(setq-default indent-tabs-mode nil)
 
 ;; dired
 (setq dired-recursive-deletes 'top)
@@ -22,7 +20,51 @@
 ;; 時刻をモードラインに表示
 (display-time)
 
-;;; customizeの出力先設定
+;; color-moccur
+(require 'color-moccur)
+
+;; moccur-grep-find
+(defun mgf (dir inputs)
+  "proxy function to call moccur-grep-find"
+  (interactive
+   (list (moccur-grep-read-directory)
+         (moccur-grep-read-regexp moccur-grep-default-mask)))
+  (moccur-grep-find dir inputs))
+
+;; Customize の出力先設定
 (setq custom-file "~/.emacs.d/inits/90-custom-file.el")
 (if (file-exists-p (expand-file-name custom-file))
     (load (expand-file-name custom-file) t nil nil))
+
+;; EmacsでPATHの設定が引き継がれない問題をエレガントに解決する
+;; https://qiita.com/catatsuy/items/3dda714f4c60c435bb25
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match that used by
+the user's shell. This is particularly useful under Mac OSX, where GUI apps are
+ not started from a shell."
+  (interactive)
+  (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+ (set-exec-path-from-shell-PATH)
+
+;; ウィンドウ間を Shift + arrow で移動する。
+(windmove-default-keybindings)
+(setq windmove-wrap-around t)
+(define-key global-map [?\C->] 'windmove-right)
+(define-key global-map [?\C-<] 'windmove-lef)t
+
+;; M-r でバッファを再読込する
+(defun revert-buffer-no-confirm (&optional force-reverting)
+  "Interactive call to revert-buffer. Ignoring the auto-save
+ file and not requesting for confirmation. When the current buffer
+ is modified, the command refuses to revert it, unless you specify
+ the optional argument: force-reverting to true."
+  (interactive "P")
+  ;;(message "force-reverting value is %s" force-reverting)
+  (if (or force-reverting (not (buffer-modified-p)))
+      (revert-buffer :ignore-auto :noconfirm)
+    (error "The buffer has been modified")))
+;; reload buffer
+(global-set-key "\M-r" 'revert-buffer-no-confirm)
