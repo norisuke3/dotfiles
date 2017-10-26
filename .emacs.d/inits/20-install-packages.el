@@ -16,6 +16,7 @@
     auto-install
     bm
     color-moccur
+    dropdown-list
     emmet-mode
     haskell-mode
     inf-ruby
@@ -26,6 +27,7 @@
     rvm
     use-package
     w3m
+    yasnippet
     ))
 
 (let ((not-installed (loop for x in installing-package-list

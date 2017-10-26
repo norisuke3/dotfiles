@@ -26,6 +26,20 @@
   (bind-key "\C-xC" 'see-you-again))
 (win:startup-with-window)
 
+(use-package yasnippet
+  :init
+  (yas-global-mode 1)
+  :config
+  (require 'dropdown-list)
+  (setq yas-prompt-functions '(yas-dropdown-prompt
+                               yas-ido-prompt
+                               yas-completing-prompt))
+  (bind-keys :map yas-minor-mode-map
+             ((kbd "C-x i i") . yas-insert-snippet)
+             ((kbd "C-x i n") . yas-new-snippet)
+             ((kbd "C-x i v") . yas-visit-snippet-file))
+  )
+
 (use-package auto-complete
   :commands auto-complete
   :init
@@ -148,16 +162,13 @@
 ;; js-mode
 (add-hook 'js-mode-hook (lambda ()(setq js-indent-level 2)))
 
-;; jsx-mode
 (use-package jsx-mode
   :commands jsx-mode
   :mode (("\\.jsx\\'" . jsx-mode))
   :config
   (setq jsx-indent-level 2))
 
-;; haskell-mode
 (use-package haskell-mode
   :commands haskell-mode
   :init
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
-
