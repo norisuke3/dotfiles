@@ -1,0 +1,8 @@
+#name : function
+# --
+/**
+ * $2
+ */
+${1:public} function ${2:functionName}($3)${4::void} {
+	$0
+}

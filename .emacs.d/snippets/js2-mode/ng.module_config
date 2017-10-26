@@ -1,0 +1,6 @@
+#name :angular.module.config
+# --
+angular.module('$1', [$2]).
+  config(['${3:\$routeProvider}', function($3) {
+  $3$0
+}]);

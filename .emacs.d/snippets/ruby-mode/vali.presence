@@ -1,0 +1,4 @@
+#name : validates_presence_of
+# --
+validates_presence_of :${1:field}
+$0

@@ -1,0 +1,30 @@
+#name : debug
+# --
+case "debug":
+  function table_counts($table){
+	$query = "select count(*) as count from ".GTABLE_PREFIX.$table;
+	$res = mysql_query($query);
+	if ($r = mysql_fetch_assoc ($res) ) {
+	  $count = $r["count"];
+	}
+	return $table.": (".$count.")";
+  }
+
+  $tables = array("usersubscriptions", "magazines", "magazineissues", "magazinearticles", "articlepages", "pagecontent");
+  echo implode(", ",array_map("table_counts", $tables));
+
+  $query = "select * from ".GTABLE_PREFIX."$0 LIMIT 30";
+  $res = mysql_query($query);
+  $o = array();
+  $th = "";
+		
+  while ($r = mysql_fetch_assoc ($res) ) {
+	$th  = "<th>".implode("</th><th>", array_keys($r))."</th>";
+	$o[] = "<td>".implode("</td><td>", $r)."</td>";
+  }
+  array_unshift($o, $th);
+		
+  echo "<table><tr>".implode("</tr><tr>", $o)."</tr></table>";
+		
+  die("<br/>-- debug end --");
+  break;

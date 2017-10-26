@@ -1,0 +1,5 @@
+#name : logger
+# --
+require 'logger'
+logger = Logger.new "log/debug.log"
+logger.debug $0

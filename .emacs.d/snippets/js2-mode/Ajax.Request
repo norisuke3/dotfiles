@@ -1,0 +1,15 @@
+#name : Ajax.Request
+# --
+new Ajax.Request(
+  'http://${1:URL}', {
+    method: '${2:method}',
+    onSuccess: function(transport){
+      $0
+    },
+    onFailure: function(transport){
+
+    },
+    onException: function(transport, ex){
+
+    }
+  });

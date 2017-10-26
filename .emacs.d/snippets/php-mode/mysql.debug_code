@@ -1,0 +1,9 @@
+#name : mysql_debug_code
+# --
+$query = "$1";
+$res = mysql_query($query);
+$o = array();
+while ($r = mysql_fetch_assoc ($res) ) {
+  $o[]=$r;
+};
+print_r($o);

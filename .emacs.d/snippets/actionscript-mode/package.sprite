@@ -1,0 +1,18 @@
+#name : package with sprite
+# --
+/**
+ * A class of $1
+ */
+package {
+	import flash.display.*;
+
+	public class ${1:className} extends Sprite{
+	
+		/**
+		 * constructor of $1
+		 */
+		public function $1(){
+			$0
+		}
+	}
+}

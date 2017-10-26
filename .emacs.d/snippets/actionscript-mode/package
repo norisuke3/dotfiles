@@ -1,0 +1,16 @@
+#name : package
+# --
+/**
+ * A class of $1
+ */
+package {
+	public class ${1:className} {
+	
+		/**
+		 * constructor of $1
+		 */
+		public function $1(){
+			$0
+		}
+	}
+}

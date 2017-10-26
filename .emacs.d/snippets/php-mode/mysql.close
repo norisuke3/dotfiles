@@ -1,0 +1,4 @@
+#name : mysql_close
+# --
+mysql_close(${1:\$conn});
+$0

@@ -1,0 +1,5 @@
+#name :angular.otherwise
+# --
+otherwise({${1:redirectTo}: '$2'});$0
+
+

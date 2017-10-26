@@ -1,0 +1,11 @@
+#name : class
+# --
+{ A class of $1
+}
+${1:className} = class$0
+private
+
+public
+  constructor Create();
+
+end;

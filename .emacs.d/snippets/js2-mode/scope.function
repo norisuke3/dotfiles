@@ -1,0 +1,5 @@
+#name : scope.function
+# --
+$scope.$1 = function(){
+  $0
+};

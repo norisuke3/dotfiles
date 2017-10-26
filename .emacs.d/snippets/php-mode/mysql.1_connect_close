@@ -1,0 +1,10 @@
+#name : mysql_connect_close
+# --
+${1:\$conn} = mysql_connect("${2:server}", "${3:username}", "${4:password}");
+if(!$1){
+  die("DB connection failed.");
+}
+
+$0
+
+mysql_close($1);

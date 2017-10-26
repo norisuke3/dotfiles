@@ -1,0 +1,5 @@
+#name : validates_inclusion_of
+# --
+validates_inclusion_of :${1:field},
+    :in => ${2:enumerable}
+$0

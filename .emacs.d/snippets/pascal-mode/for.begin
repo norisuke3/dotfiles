@@ -1,0 +1,6 @@
+#name : for ... to ... do begin...
+# --
+for ${1:valiable} := ${2:from} to ${3:end} do
+begin
+  $0
+end; // for $1

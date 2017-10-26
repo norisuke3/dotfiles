@@ -1,0 +1,10 @@
+#name : html for chrome background.html
+# --
+<html>
+  <script>
+    chrome.browserAction.onClicked.addListener(function(tab) {
+      $0
+    });
+  </script>
+</html>
+

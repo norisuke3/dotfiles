@@ -1,0 +1,11 @@
+#name :angular.module.factory
+# --
+angular.module('${1:MODULE_NAME}', [${2:ngResource}]).
+  factory(['${3:RESOURCE_NAME}', function(${4:\$resource}) {
+    return $resource('$5', {}, {
+       'create' : { method: 'POST' },
+       'index'  : { method: 'GET', isArray: true },
+       'update' : { method: 'PUT' },
+       'destroy': { method: 'DELETE' }
+    })
+  }]);

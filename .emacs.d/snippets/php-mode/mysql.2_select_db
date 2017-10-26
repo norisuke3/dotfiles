@@ -1,0 +1,7 @@
+#name : mysql_select_db
+# --
+${1:\$db} = mysql_select_db("${2:db_name}", ${3:\$conn});
+if(!$1){
+  die("failed to open the db.");
+}
+$0

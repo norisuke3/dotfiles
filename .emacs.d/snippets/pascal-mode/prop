@@ -1,0 +1,3 @@
+#name : property ... read ... write...
+# --
+property ${1:Name}: ${2:Type} read f$1 write f$1;

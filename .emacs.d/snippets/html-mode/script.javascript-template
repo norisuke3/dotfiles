@@ -1,0 +1,5 @@
+#name :<script id="" type="text/template">...</script> 
+# --
+<script  id="$1" type="text/template">
+  $2
+</script>

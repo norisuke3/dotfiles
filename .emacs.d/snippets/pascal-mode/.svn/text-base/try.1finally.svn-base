@@ -1,0 +1,8 @@
+#name : try ... finally
+# --
+try
+  $0
+finally
+
+
+end; // try...finally

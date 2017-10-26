@@ -1,0 +1,5 @@
+#name : mysql_fetch_assoc
+# --
+while(${1:\$row} = mysql_fetch_assoc(${2:\$res})){
+  $0
+}

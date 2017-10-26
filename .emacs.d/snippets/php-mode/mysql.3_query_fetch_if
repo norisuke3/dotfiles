@@ -1,0 +1,6 @@
+#name : mysql_query_fetch_if
+# --
+${1:\$res} = mysql_query(${2:\$query});
+if (${3:\$r} = mysql_fetch_assoc ($1) ) {
+  $0
+}

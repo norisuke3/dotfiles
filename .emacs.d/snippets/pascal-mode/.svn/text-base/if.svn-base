@@ -1,0 +1,6 @@
+#name : if (...) { ... }
+# --
+if (${1:condition}) then
+begin
+  $0
+end; // if ($1)

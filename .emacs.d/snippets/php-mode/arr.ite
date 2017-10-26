@@ -1,0 +1,5 @@
+#name : Array iteration
+# --
+while(list($key, $value) = each(${1:\$arr})){
+  $0
+}
