@@ -19,6 +19,7 @@
     dropdown-list
     emmet-mode
     haskell-mode
+    helm
     inf-ruby
     init-loader
     js2-mode
