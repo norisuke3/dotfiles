@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dinner
+# key: dinner
+# group: 家計簿
+# --
+`(format-time-string "%m/%d/%Y")`,dinner,$2,Grocery,Nori,$3
+$0

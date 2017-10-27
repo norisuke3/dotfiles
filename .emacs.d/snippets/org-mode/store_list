@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: grocery_store
+# key: store
+# group: 家計簿
+# --
+${1:$$(yas-choose-value '("Marukai" "Nijiya" "Mitsuwa" "Safeway" "Trader Joe's" "99 Ranch Market" "Target" "Farmer's market"))}

@@ -91,8 +91,15 @@
   ;; org-capture
   (define-key global-map "\C-cc" 'org-capture)
   (setq org-capture-templates
-        '(("n" "Note" entry (file+headline "~/Dropbox/org/notes.org" "Notes")
-           "* %?\n %U\n %i")))
+        '(("n" "メモ" entry (file+headline "~/Dropbox/org/notes.org" "Notes")
+           "* %?\n %U\n %i")
+          ("k" "家計簿" entry (file+headline "~/Dropbox/org/kakeibo.org" "家計簿")
+           "* %U\n %i" :prepend t)
+          ("r" "レシピ" entry (file+headline "~/Dropbox/org/recipe.org" "レシピ")
+           "* %U\n %i")
+          ("e" "英単語" entry (file+headline "~/Dropbox/org/ewords.org" "英単語")
+           "* %U\n %i" :prepend t)
+          ))
   :config
   (setq org-agenda-files (list "~/inbox.org"))
   ;; org-mode with w3m browsing

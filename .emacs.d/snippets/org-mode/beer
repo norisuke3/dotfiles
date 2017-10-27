@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: beer
+# key: beer
+# group: 家計簿
+# --
+`(format-time-string "%m/%d/%Y")`,Beer,$1,Alcohol,Nori,${2:$$(yas-choose-value '("Marukai" "Nijiya" "Mitsuwa" "Safeway" "Trader Joe's" "99 Ranch Market" "Target" "Farmer's market"))}
+$0

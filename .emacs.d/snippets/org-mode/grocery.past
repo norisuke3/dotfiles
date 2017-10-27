@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: grocery past
+# key: grp
+# group: 家計簿
+# --
+9/$1/2017,${2:商品名},$3,Grocery,Nori,${4:$$(yas-choose-value '("Marukai" "Nijiya" "Mitsuwa" "Safeway" "Trader Joe's" "99 Ranch Market" "Target" "Farmer's market" "DAISO" "Walmart"))}
+$0

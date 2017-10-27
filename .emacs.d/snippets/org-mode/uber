@@ -1,0 +1,6 @@
+# key: uber
+# name: uber
+# group: 家計簿
+# --
+`(format-time-string "%m/%d/%Y")`,Uber,$2,Misc.,Nori,Uber
+$0
