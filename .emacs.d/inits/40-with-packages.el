@@ -118,6 +118,10 @@
                              ("someday" "material" "schedule" "wait" "nextAction")))
   )
 
+(use-package magit
+  :init
+  (bind-key "C-x g" 'magit-status))
+
 ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; https://github.com/senny/rvm.el
 (use-package rvm

@@ -23,6 +23,7 @@
     init-loader
     js2-mode
     jsx-mode
+    magit
     restclient
     rvm
     use-package
