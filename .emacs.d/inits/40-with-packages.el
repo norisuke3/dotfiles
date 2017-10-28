@@ -7,7 +7,8 @@
 ;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
 ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
 (use-package helm
-  :bind (("C-;" . helm-for-files)))
+  :bind (("C-;" . helm-for-files))
+  )
 
 (use-package wdired
   :commands wdired-change-to-wdired-mode
