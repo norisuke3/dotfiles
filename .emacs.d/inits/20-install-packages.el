@@ -20,11 +20,14 @@
     emmet-mode
     haskell-mode
     helm
+    helm-migemo
+    helm-w3m
     inf-ruby
     init-loader
     js2-mode
     jsx-mode
     magit
+    migemo
     restclient
     rvm
     use-package
