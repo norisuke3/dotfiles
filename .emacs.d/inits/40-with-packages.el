@@ -8,15 +8,14 @@
 ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
 (use-package helm
   :bind (("C-;" . helm-for-files))
+  :config
+  (bind-key "M-y" 'helm-show-kill-ring)
   )
 
 (use-package wdired
   :commands wdired-change-to-wdired-mode
   :init
   (bind-key  "r" 'wdired-change-to-wdired-mode dired-mode-map))
-
-(use-package kill-summary
-  :bind (("M-y" . kill-summary)))
 
 ;; Meadow/Emacs memo: ウィンドウ/フレーム関連 ― 分割・サイズ変更
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC404

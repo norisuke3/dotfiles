@@ -11,7 +11,6 @@ SITE_LISP   = "#{EMACS_D}/site-lisp"
 packages = %w(
   http://www.gentei.org/~yuuji/software/euc/windows.el
   http://www.gentei.org/~yuuji/software/euc/revive.el
-  http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el
 )
 
 dotfiles = %w(
