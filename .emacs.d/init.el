@@ -9,3 +9,10 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
+
+;; Customize の出力先設定
+;; 【Emacs】init-loaderで初期設定ファイルを整理 | The modern stone age.
+;; https://www.yokoweb.net/2017/01/08/emacs-init-loader/
+(setq custom-file "~/.emacs.d/inits/90-custom-file.el")
+(if (file-exists-p (expand-file-name custom-file))
+    (load (expand-file-name custom-file) t nil nil))

@@ -31,11 +31,6 @@
          (moccur-grep-read-regexp moccur-grep-default-mask)))
   (moccur-grep-find dir inputs))
 
-;; Customize の出力先設定
-(setq custom-file "~/.emacs.d/inits/90-custom-file.el")
-(if (file-exists-p (expand-file-name custom-file))
-    (load (expand-file-name custom-file) t nil nil))
-
 ;; EmacsでPATHの設定が引き継がれない問題をエレガントに解決する
 ;; https://qiita.com/catatsuy/items/3dda714f4c60c435bb25
 (defun set-exec-path-from-shell-PATH ()
