@@ -32,6 +32,7 @@
     migemo
     restclient
     rvm
+    recentf-ext
     use-package
     w3m
     yasnippet
