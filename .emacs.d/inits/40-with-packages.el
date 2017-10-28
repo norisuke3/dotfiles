@@ -1,7 +1,9 @@
 ;; use-packageで可読性の高いinit.elを書く
 ;; https://qiita.com/kai2nenobu/items/5dfae3767514584f5220
-;; (use-package anything-startup
-;;   :bind (("C-l" . anything-for-files)))
+(use-package anything-startup
+  :bind (("C-x C-;" . anything-for-files)
+         ;; comment-line が元々 "C-x C-;" に割り当てられていたので "M-;" に移動。
+         ("M-;" . comment-line)))
 
 ;; #11 Emacs に革命を起こすパッケージ「helm」
 ;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
