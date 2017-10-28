@@ -45,10 +45,10 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
  (set-exec-path-from-shell-PATH)
 
 ;; ウィンドウ間を Shift + arrow で移動する。
-(windmove-default-keybindings)
-(setq windmove-wrap-around t)
-(define-key global-map [?\C->] 'windmove-right)
-(define-key global-map [?\C-<] 'windmove-lef)t
+;; (windmove-default-keybindings)
+;; (setq windmove-wrap-around t)
+;; (define-key global-map [?\C->] 'windmove-right)
+;; (define-key global-map [?\C-<] 'windmove-lef)t
 
 ;; M-r でバッファを再読込する
 (defun revert-buffer-no-confirm (&optional force-reverting)
