@@ -10,6 +10,7 @@
 (defvar installing-package-list
   '(
     ;; ここに使っているパッケージを書く。
+    ace-isearch
     anything
     auto-async-byte-compile
     auto-complete
