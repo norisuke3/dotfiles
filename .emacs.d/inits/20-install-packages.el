@@ -22,7 +22,6 @@
     emmet-mode
     haskell-mode
     helm
-    helm-migemo
     helm-swoop
     helm-w3m
     inf-ruby
