@@ -54,6 +54,14 @@ namespace :emacs do
       sh "cp #{TMP}/#{file} #{SITE_LISP}/#{file}"
     end
   end
+
+  namespace :packages do
+    desc "take a snap shot of the current packages."
+    task :snapshot do
+      ts = Time.now.strftime("%Y_%m_%d_%H%M%S")
+      sh "cd #{EMACS_D}; tar -zcvf #{EMACS_LOCAL}/elpa_#{ts}.tar.gz elpa"
+    end
+  end
 end
 
 desc "Make symbolic link"
