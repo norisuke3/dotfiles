@@ -20,6 +20,7 @@
     dropdown-list
     emmet-mode
     flycheck
+    ghc
     haskell-mode
     helm
     helm-swoop
