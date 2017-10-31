@@ -206,7 +206,31 @@
   :config
   (setq jsx-indent-level 2))
 
+;; https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
 (use-package haskell-mode
   :commands haskell-mode
   :init
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  (add-hook 'haskell-mode-hook #'hindent-mode)
+  (custom-set-variables
+   '(haskell-process-type 'stack-ghci) ;; Stack の ghci を Emacs から使うのに必要な設定
+   '(haskell-tags-on-save t)
+   '(haskell-process-suggest-remove-import-lines t)
+   '(haskell-process-auto-import-loaded-modules t)
+   '(haskell-process-log t)
+   )
+  :config
+  (bind-key [f7] 'haskell-navigate-imports haskell-mode-map))
+
+(eval-after-load 'haskell-mode '(progn
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
+(eval-after-load 'haskell-cabal '(progn
+  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))

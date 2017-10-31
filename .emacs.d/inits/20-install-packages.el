@@ -24,6 +24,7 @@
     helm
     helm-swoop
     helm-w3m
+    hindent
     inf-ruby
     init-loader
     js2-mode
