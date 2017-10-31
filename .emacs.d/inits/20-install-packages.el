@@ -20,6 +20,7 @@
     color-moccur
     dropdown-list
     emmet-mode
+    flycheck
     haskell-mode
     helm
     helm-swoop

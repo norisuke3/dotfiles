@@ -89,6 +89,8 @@
   (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
   )
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (use-package org
   :mode (("\\.org$" . org-mode))
   :init
