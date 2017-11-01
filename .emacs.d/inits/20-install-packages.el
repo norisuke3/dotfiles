@@ -17,6 +17,7 @@
     auto-install
     bm
     color-moccur
+    company-ghc
     dropdown-list
     emmet-mode
     flycheck
