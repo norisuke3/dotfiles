@@ -39,6 +39,7 @@
     use-package
     w3m
     yasnippet
+    yaml-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
