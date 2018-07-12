@@ -30,6 +30,7 @@
     inf-ruby
     init-loader
     js2-mode
+    js-comint
     jsx-mode
     magit
     migemo

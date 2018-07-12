@@ -206,6 +206,21 @@
   :config
   (setq jsx-indent-level 2))
 
+(use-package js-comint
+  :commands run-js
+  :mode (("\\.js\\'" . js2-mode))
+  :init
+  (defun inferior-js-mode-hook-setup ()
+    (add-hook 'comint-output-filter-functions 'js-comint-process-output))
+  (add-hook 'inferior-js-mode-hook 'inferior-js-mode-hook-setup t)
+  :config
+  (bind-keys :map js2-mode-map
+             ("C-x C-e" . js-send-last-sexp)
+             ("C-M-x"   . js-send-last-sexp-and-go)
+             ("C-c C-l"   . js-send-buffer)
+             ("C-c C-b" . js-send-buffer-and-go)
+             ("C-c l"   . js-load-file-and-go)))
+
 ;; https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
 (use-package haskell-mode
   :commands haskell-mode
