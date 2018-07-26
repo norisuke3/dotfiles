@@ -37,6 +37,7 @@
     restclient
     rvm
     recentf-ext
+    solidity-mode
     use-package
     w3m
     yasnippet
