@@ -22,6 +22,7 @@
     emmet-mode
     flycheck
     ghc
+    go-mode
     haskell-mode
     helm
     helm-swoop
