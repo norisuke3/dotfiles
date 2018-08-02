@@ -1,0 +1,14 @@
+#defencoding eucJP
+defencoding UTF-8
+escape  
+
+#hardstatus alwayslastline "%w"
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+shell zsh
+
+bind 2 split
+bind o focus
+bind 1 only
+bind 0 remove
+
+defscrollback 10000
