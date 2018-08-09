@@ -33,6 +33,9 @@
 
 ;; EmacsでPATHの設定が引き継がれない問題をエレガントに解決する
 ;; https://qiita.com/catatsuy/items/3dda714f4c60c435bb25
+;; Mac で初めて設定する場合、ログインシェルをzshに変更して再起動する必要がある。
+;; システム環境設定 –> ユーザとグループ –> 左下の鍵を外す –> ユーザを右クリック –> 詳細オプション
+;; http://keisanbutsuriya.hateblo.jp/entry/2017/06/21/010257
 (defun set-exec-path-from-shell-PATH ()
   "Set up Emacs' `exec-path' and PATH environment variable to match that used by
 the user's shell. This is particularly useful under Mac OSX, where GUI apps are
