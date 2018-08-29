@@ -31,6 +31,28 @@
          (moccur-grep-read-regexp moccur-grep-default-mask)))
   (moccur-grep-find dir inputs))
 
+;; moccur-grep で特定のファイルを対象外としたい
+;; http://higepon.hatenablog.com/entry/20080717/1216264518
+(setq moccur-grep-exclusion-buffer-name-regexp "\\(vendor\\)\\|\\(\\.git\\)")
+;(defun delete-string-match (reg lst)
+;  (cond
+;   ((null lst) (reverse lst))
+;   ((string-match reg (car lst))
+;    (delete-string-match reg (cdr lst)))
+;   (t (cons (car lst) (delete-string-match reg (cdr lst))))))
+(defun delete-string-match (reg lst)
+  (let ((ret nil))
+    (while lst
+      (unless (string-match reg (car lst))
+        (setq ret (cons (car lst) ret)))
+      (setq lst (cdr lst)))
+    (reverse ret)))
+(defadvice moccur-search-files (before moccur-search-files-with-exclusion)
+  "enable moccur-grep-exclusion-buffer-name-regexp"
+  (ad-set-arg 1 (delete-string-match moccur-grep-exclusion-buffer-name-regexp (ad-get-arg 1))))
+(ad-enable-advice 'moccur-search-files 'before 'moccur-search-files-with-exclusion)
+(ad-activate 'moccur-search-files)
+
 ;; EmacsでPATHの設定が引き継がれない問題をエレガントに解決する
 ;; https://qiita.com/catatsuy/items/3dda714f4c60c435bb25
 ;; Mac で初めて設定する場合、ログインシェルをzshに変更して再起動する必要がある。
