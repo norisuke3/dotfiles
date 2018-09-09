@@ -3,13 +3,13 @@
 ;; 最近使ったファイルに加えないファイルを
 ;; 正規表現で指定する
 (setq recentf-exclude
-;;      '("/TAGS$" "/var/tmp/")
+      '("/TAGS$" "/var/tmp/")
       )
 ;; 情報源の設定
 (setq helm-for-files-preferred-list
-      '(helm-source-buffers-list
+      '(helm-source-bookmarks
+        helm-source-buffers-list
         helm-source-recentf
-        helm-source-bookmarks
         helm-source-file-cache
         helm-source-files-in-current-dir
         ;; 必要とあれば

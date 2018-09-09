@@ -11,6 +11,7 @@ setopt extended_history               # 履歴ファイルに時刻を記録
 function history-all { history -E 1 } # 全履歴の一覧を出力する
 
 setopt hist_ignore_dups     # ignore duplication command history list
+setopt hist_ignore_all_dups # the same command in the past is removed
 setopt share_history        # share command history data
 setopt hist_ignore_space
 
