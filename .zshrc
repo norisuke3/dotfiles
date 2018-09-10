@@ -1,5 +1,6 @@
 typeset -U path PATH # PATHの重複登録防止
 export LANG=ja_JP.UTF-8
+bindkey -e
 
 autoload -U compinit
 compinit
