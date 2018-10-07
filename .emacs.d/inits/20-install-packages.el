@@ -33,6 +33,7 @@
     js2-mode
     js-comint
     jsx-mode
+    key-chord
     magit
     migemo
     restclient
@@ -40,6 +41,7 @@
     recentf-ext
     solidity-mode
     use-package
+    viewer
     w3m
     yasnippet
     yaml-mode

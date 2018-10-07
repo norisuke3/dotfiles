@@ -255,3 +255,38 @@
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (use-package solidity-mode)
+
+(use-package key-chord
+  :init
+  (key-chord-mode 1)
+  (setq key-chord-two-keys-delay 0.04)
+  (key-chord-define-global "kj" 'view-mode)
+  )
+
+(use-package view
+  :config
+  ;; less 感覚の操作
+  (define-key view-mode-map (kbd "N") 'View-search-last-regexp-backward)
+  (define-key view-mode-map (kbd "?") 'View-search-regexp-backward)
+  (define-key view-mode-map (kbd "G") 'end-of-buffer)
+  (define-key view-mode-map (kbd "b") 'View-scroll-page-backward)
+  (define-key view-mode-map (kbd "f") 'View-scroll-page-forward)
+  ;; vi/w3m 感覚の操作
+  (define-key view-mode-map (kbd "h") 'backward-char)
+  (define-key view-mode-map (kbd "j") 'next-line)
+  (define-key view-mode-map (kbd "k") 'previous-line)
+  (define-key view-mode-map (kbd "l") 'forward-char)
+  (define-key view-mode-map (kbd "J") 'View-scroll-line-forward)
+  (define-key view-mode-map (kbd "K") 'View-scroll-line-backward)
+  ;; bm.el の設定
+  (define-key view-mode-map (kbd "m") 'bm-toggle)
+  (define-key view-mode-map (kbd "[") 'bm-previous)
+  (define-key view-mode-map (kbd "]") 'bm-next)
+  )
+
+(use-package viewer
+  :config
+  (setq viewer-modeline-color-unwritable "tomato")
+  (setq viewer-modeline-color-view "orange")
+  (viewer-change-modeline-color-setup)
+  )
