@@ -3,7 +3,7 @@
 ;; 最近使ったファイルに加えないファイルを
 ;; 正規表現で指定する
 (setq recentf-exclude
-      '("/TAGS$" "/var/tmp/")
+      '("/TAGS$" "/var/tmp/" "/vendor/")
       )
 ;; 情報源の設定
 (setq helm-for-files-preferred-list
