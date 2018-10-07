@@ -131,7 +131,17 @@
 
 (use-package magit
   :init
-  (bind-key "C-x g" 'magit-status))
+  (bind-key "C-x g" 'magit-status)
+  :config
+  ;; http://yamakichi.hatenablog.com/entry/2016/06/29/133246
+  (custom-set-faces
+   ;; '(magit-diff-added ((t (:background "black" :foreground "green"))))
+   ;; '(magit-diff-added-highlight ((t (:background "white" :foreground "green"))))
+   ;; '(magit-diff-removed ((t (:background "black" :foreground "blue"))))
+   ;; '(magit-diff-removed-hightlight ((t (:background "white" :foreground "blue"))))
+   '(magit-hash ((t (:foreground "red")))))
+  )
+
 
 ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; https://github.com/senny/rvm.el
