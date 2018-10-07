@@ -300,3 +300,18 @@
   (setq viewer-modeline-color-view "orange")
   (viewer-change-modeline-color-setup)
   )
+
+(use-package go-mode
+  :mode (("\\.go$" . go-mode))
+  :init
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  :config
+  (require 'go-autocomplete)
+  (defun go-build nil
+    "go build"
+    (interactive)
+    (run-shell-command
+     "*Shell/Go*" (concat "go run " (buffer-file-name) "\n")))
+  (bind-keys :map go-mode-map
+             ("C-c C-l" . go-build)))

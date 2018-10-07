@@ -23,6 +23,7 @@
     flycheck
     ghc
     go-mode
+    go-autocomplete
     haskell-mode
     helm
     helm-swoop
