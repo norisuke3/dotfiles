@@ -11,6 +11,7 @@
     ;; ここに使っているパッケージを書く。
     ace-isearch
     ace-jump-mode
+    ag
     anything
     auto-async-byte-compile
     auto-complete
