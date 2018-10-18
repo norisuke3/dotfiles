@@ -29,6 +29,7 @@
     helm
     helm-swoop
     helm-w3m
+    helm-ag
     hindent
     inf-ruby
     init-loader
