@@ -295,13 +295,25 @@
   (define-key view-mode-map (kbd "m") 'bm-toggle)
   (define-key view-mode-map (kbd "[") 'bm-previous)
   (define-key view-mode-map (kbd "]") 'bm-next)
+  ;; occur
+  (define-key view-mode-map (kbd "o") 'occur)
   )
 
 (use-package viewer
   :config
+  ;; 書き込み不能ファイルでview-modeから抜けなくなる
+  (viewer-stay-in-setup)
+  ;; モードラインの色を指定する
   (setq viewer-modeline-color-unwritable "tomato")
   (setq viewer-modeline-color-view "orange")
   (viewer-change-modeline-color-setup)
+  ;; 特定のファイルを view-mode で開く
+  (setq view-mode-by-default-regexp "\\.log$")
+  ;; メジャーモードに合わせて view-mode のキーバーインドを設定する
+  (define-overriding-view-mode-map emacs-lisp-mode
+    ("RET" . find-function-at-point))
+  (define-overriding-view-mode-map go-mode
+    ("\S-RET" . go-goto-function))
   )
 
 (use-package go-mode
