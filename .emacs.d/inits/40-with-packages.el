@@ -161,22 +161,6 @@
    '(magit-hash ((t (:foreground "red")))))
   )
 
-
-;; Emacs 上で正しいバージョンの ruby を選択する
-;; https://github.com/senny/rvm.el
-(use-package rvm
-  :init
-  (rvm-use-default))
-
-;; Emacs で Pry
-;; - http://d.hatena.ne.jp/rubikitch/20140627/pry
-(use-package inf-ruby
-  :init
-  (setq inf-ruby-default-implementation "pry")
-  (setq inf-ruby-eval-binding "Pry.toplevel_binding")
-  ;; riなどのエスケープシーケンスを処理し、色付けする
-  (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on))
-
 ;; bm.el (行をオレンジ色で色付ける, Bookmark)
 ;; bm.el
 (use-package bm
@@ -334,3 +318,20 @@
      "*Shell/Go*" (concat "go run " (buffer-file-name) "\n")))
   (bind-keys :map go-mode-map
              ("C-c C-l" . go-build)))
+
+;; 起動時に遅いので、以下コメントアウト
+;; ;; Emacs 上で正しいバージョンの ruby を選択する
+;; ;; https://github.com/senny/rvm.el
+;; (use-package rvm
+;;   :init
+;;   (rvm-use-default))
+
+;; ;; Emacs で Pry
+;; ;; - http://d.hatena.ne.jp/rubikitch/20140627/pry
+;; (use-package inf-ruby
+;;   :init
+;;   (setq inf-ruby-default-implementation "pry")
+;;   (setq inf-ruby-eval-binding "Pry.toplevel_binding")
+;;   ;; riなどのエスケープシーケンスを処理し、色付けする
+;;   (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on))
+
