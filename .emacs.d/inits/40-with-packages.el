@@ -10,9 +10,21 @@
 ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
 (use-package helm
   :bind (("C-;" . helm-for-files)
-         ("C-'" . helm-swoop)) ;; http://emacs.rubikitch.com/helm-swoop/
+         ("C-'" . helm-swoop) ;; http://emacs.rubikitch.com/helm-swoop/
+         ("M-'" . helm-resume)
+         ("C-x C-'" . helm-resume))
   :config
   (bind-key "M-y" 'helm-show-kill-ring)
+  )
+
+(use-package helm-ag
+  :init
+  (setq helm-ag-base-command "rg --vimgrep --no-heading")
+  ;;; 現在のシンボルをデフォルトのクエリにする
+  (setq helm-ag-insert-at-point 'symbol)
+  ;;; C-M-gはちょうどあいてる
+  (global-set-key (kbd "C-M-g") 'helm-ag)
+  (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
   )
 
 (use-package wdired
