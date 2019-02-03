@@ -20,6 +20,13 @@
   :init
   (bind-key  "r" 'wdired-change-to-wdired-mode dired-mode-map))
 
+;; emacsの矩形選択モード紹介
+;; https://techblog.kayac.com/emacs-rectangle.html
+(use-package cua-mode
+  :init
+  (cua-mode t)
+  (setq cua-enable-cua-keys nil))
+
 ;; Meadow/Emacs memo: ウィンドウ/フレーム関連 ― 分割・サイズ変更
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC404
 (use-package windows
