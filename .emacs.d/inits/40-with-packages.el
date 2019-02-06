@@ -334,6 +334,13 @@
   (bind-keys :map go-mode-map
              ("C-c C-l" . go-build)))
 
+;; sequential-command
+(use-package sequential-command-config
+  :config
+  (sequential-command-setup-keys)
+  )
+
+
 ;; 起動時に遅いので、以下コメントアウト
 ;; ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; ;; https://github.com/senny/rvm.el

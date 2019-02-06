@@ -42,6 +42,7 @@
     restclient
     rvm
     recentf-ext
+    sequential-command
     solidity-mode
     use-package
     viewer
