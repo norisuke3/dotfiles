@@ -31,6 +31,7 @@
   :commands wdired-change-to-wdired-mode
   :init
   (bind-key  "r" 'wdired-change-to-wdired-mode dired-mode-map))
+(define-key dired-mode-map (kbd "C-t") 'other-window-or-split)
 
 ;; emacsの矩形選択モード紹介
 ;; https://techblog.kayac.com/emacs-rectangle.html
@@ -297,6 +298,8 @@
   (define-key view-mode-map (kbd "]") 'bm-next)
   ;; occur
   (define-key view-mode-map (kbd "o") 'occur)
+  ;; other-window-or-split
+  (define-key view-mode-map (kbd "t") 'other-window-or-split)
   )
 
 (use-package viewer
