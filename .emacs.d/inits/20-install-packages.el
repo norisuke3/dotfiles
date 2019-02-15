@@ -39,6 +39,7 @@
     key-chord
     magit
     migemo
+    minor-mode-hack
     restclient
     rvm
     recentf-ext
