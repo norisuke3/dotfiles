@@ -340,6 +340,16 @@
   (sequential-command-setup-keys)
   )
 
+;; ido-vertical-mode.el : idoの候補を縦に並べ、helmっぽい見た目にする！
+;; (shell-command "open http://emacs.rubikitch.com/ido-vertical-mode/")
+(use-package ido-mode
+  :init
+  (setq ido-enable-flex-matching t)
+  (setq ido-max-window-height 0.75)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (ido-vertical-mode 1)
+  (ido-mode t)
+  )
 
 ;; 起動時に遅いので、以下コメントアウト
 ;; ;; Emacs 上で正しいバージョンの ruby を選択する
