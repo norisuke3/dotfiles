@@ -63,12 +63,11 @@
         (package-install pkg))))
 
 ;; package に登録されていない elファイルのインストール
-;; auto-install (http://rubikitch.com/package-initialize/)
+;; auto-install (shell-command "open http://rubikitch.com/package-initialize/")
 ;; 以下のコマンドが使えるようになる。
 ;; M-x install-elisp URL
 ;; M-x install-elisp-from-emacswiki EmacsWikiのページ名
 ;; M-x install-elisp-from-gist gist-id
-(use-package auto-install
-  :config
-  (setq auto-install-directory "~/.emacs.d/site-lisp/")
-  (auto-install-compatibility-setup))
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/site-lisp/")
+(auto-install-compatibility-setup)

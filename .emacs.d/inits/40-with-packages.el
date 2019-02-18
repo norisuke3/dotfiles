@@ -1,5 +1,5 @@
 ;; use-packageで可読性の高いinit.elを書く
-;; https://qiita.com/kai2nenobu/items/5dfae3767514584f5220
+;; (shell-command "open https://qiita.com/kai2nenobu/items/5dfae3767514584f5220")
 (use-package anything-startup
   :bind (("C-x C-;" . anything-for-files)
          ;; comment-line が元々 "C-x C-;" に割り当てられていたので "M-;" に移動。
