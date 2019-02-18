@@ -5,6 +5,13 @@
 (load "dired-x")
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; 現在行に色を付ける
+(global-hl-line-mode t)
+
+;; goto-line (デフォルトの M-g g は２ストロークなので、M-g に直接割り当てる。)
+(global-set-key (kbd "M-g") 'goto-line)
+
+
 ;; 行間を広げる
 (setq-default line-spacing 1)
 
