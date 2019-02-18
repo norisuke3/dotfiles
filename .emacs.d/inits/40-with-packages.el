@@ -351,6 +351,14 @@
   (ido-mode t)
   )
 
+;; smex
+;; (shell-command "open http://emacs.rubikitch.com/smex/")
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;; 起動時に遅いので、以下コメントアウト
 ;; ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; ;; https://github.com/senny/rvm.el

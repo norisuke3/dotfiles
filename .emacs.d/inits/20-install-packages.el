@@ -45,6 +45,7 @@
     rvm
     recentf-ext
     sequential-command
+    smex
     solidity-mode
     use-package
     viewer
