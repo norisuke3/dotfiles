@@ -47,6 +47,7 @@
     sequential-command
     smex
     solidity-mode
+    sticky
     use-package
     viewer
     w3m

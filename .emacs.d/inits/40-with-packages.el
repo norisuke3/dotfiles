@@ -359,6 +359,12 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; sticky
+;; 大文字入力を楽にする (Emacsテクニックバイブル 2-4)
+(use-package sticky
+  :config
+  (use-sticky-key ";" sticky-alist:en))
+
 ;; 起動時に遅いので、以下コメントアウト
 ;; ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; ;; https://github.com/senny/rvm.el
