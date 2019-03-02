@@ -41,6 +41,7 @@
     magit
     migemo
     minor-mode-hack
+    ob-mongo
     restclient
     rvm
     recentf-ext
