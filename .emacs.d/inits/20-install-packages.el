@@ -23,6 +23,7 @@
     emmet-mode
     flycheck
     ghc
+    goto-chg
     go-mode
     go-autocomplete
     haskell-mode

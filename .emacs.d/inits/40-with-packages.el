@@ -40,6 +40,19 @@
   (cua-mode t)
   (setq cua-enable-cua-keys nil))
 
+;; カーソルの位置を戻す
+;; https://qiita.com/icb54615/items/5ff996a5c708631824aa
+;; 「Emacsテクニックバイブル」P115
+(use-package point-undo
+  :bind (([f7] . point-undo)
+         ([S-f7] . point-redo)))
+
+;; 最後の変更箇所にジャンプする
+;; 「Emacsテクニックバイブル」P117
+(use-package goto-chg
+  :bind (([f6] . goto-last-change)
+         ([S-f6] . goto-last-change-reverse)))
+
 ;; Meadow/Emacs memo: ウィンドウ/フレーム関連 ― 分割・サイズ変更
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC404
 (use-package windows
