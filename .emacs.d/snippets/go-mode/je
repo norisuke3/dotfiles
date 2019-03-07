@@ -1,0 +1,6 @@
+#name :$(json.encoder)
+# --
+b := bytes.NewBufferString("")
+json.NewEncoder(b).Encode($1)
+fmt.Println(string(b.Bytes()))
+$0

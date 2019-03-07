@@ -1,0 +1,4 @@
+#name :$(debug.print)
+# --
+fmt.Printf("$1: '%${2:s}'\n", $3)
+$0
