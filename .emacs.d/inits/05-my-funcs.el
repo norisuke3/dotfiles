@@ -21,13 +21,7 @@
     "Create a new frame with a new empty buffer."
   (interactive)
   (if (use-region-p)
-      (copy-to-new-buffer
-       (save-excursion
-         (goto-char (region-beginning))
-         (line-beginning-position))
-       (save-excursion
-         (goto-char (region-end))
-         (line-end-position)))
+      (copy-to-new-buffer (region-beginning) (region-end))
     (let ((buffer (generate-new-buffer "untitled")))
       (pop-to-buffer buffer))))
 
