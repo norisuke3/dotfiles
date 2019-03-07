@@ -18,8 +18,25 @@
 ;; Open a new buffer
 ;; https://stackoverflow.com/questions/25791605/emacs-how-do-i-create-a-new-empty-buffer-whenever-creating-a-new-frame
 (defun lunaryorn-new-buffer-frame ()
-  "Create a new frame with a new empty buffer."
+    "Create a new frame with a new empty buffer."
   (interactive)
-  (let ((buffer (generate-new-buffer "untitled")))
-    (pop-to-buffer buffer)))
+  (if (use-region-p)
+      (copy-to-new-buffer
+       (save-excursion
+         (goto-char (region-beginning))
+         (line-beginning-position))
+       (save-excursion
+         (goto-char (region-end))
+         (line-end-position)))
+    (let ((buffer (generate-new-buffer "untitled")))
+      (pop-to-buffer buffer))))
+
 (global-set-key (kbd "C-c n") #'lunaryorn-new-buffer-frame)
+
+(defun copy-to-new-buffer (beginning end)
+  (progn
+    (kill-ring-save beginning end)
+    (let ((buffer (generate-new-buffer "untitled")))
+      (pop-to-buffer buffer))
+    (yank)))
+
