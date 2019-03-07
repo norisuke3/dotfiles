@@ -365,6 +365,13 @@
   :config
   (use-sticky-key ";" sticky-alist:en))
 
+;; iflipb
+;; 詳説！Alt+Tab感覚で賢くバッファをワンタッチで切り替える
+;; http://emacs.rubikitch.com/iflipb/
+(use-package iflipb
+  :bind (("C-," . iflipb-previous-buffer)
+         ("C-." . iflipb-next-buffer)))
+
 ;; 起動時に遅いので、以下コメントアウト
 ;; ;; Emacs 上で正しいバージョンの ruby を選択する
 ;; ;; https://github.com/senny/rvm.el

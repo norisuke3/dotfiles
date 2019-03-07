@@ -31,6 +31,7 @@
     helm-w3m
     helm-ag
     hindent
+    iflipb
     ido-vertical-mode
     inf-ruby
     init-loader
