@@ -329,7 +329,10 @@
   (define-overriding-view-mode-map emacs-lisp-mode
     ("RET" . find-function-at-point))
   (define-overriding-view-mode-map go-mode
-    ("\S-RET" . go-goto-function))
+    (";" . go-goto-function-name)
+    ("RET" . godef-jump)
+    ("," . xref-pop-marker-stack)
+    )
   )
 
 (use-package go-mode
