@@ -15,3 +15,11 @@
     (shell buffer-name)
     (process-send-string buffer-name command)))
 
+;; Open a new buffer
+;; https://stackoverflow.com/questions/25791605/emacs-how-do-i-create-a-new-empty-buffer-whenever-creating-a-new-frame
+(defun lunaryorn-new-buffer-frame ()
+  "Create a new frame with a new empty buffer."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (pop-to-buffer buffer)))
+(global-set-key (kbd "C-c n") #'lunaryorn-new-buffer-frame)
