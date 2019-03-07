@@ -7,6 +7,22 @@
 
 ;; 現在行に色を付ける
 (global-hl-line-mode t)
+(set-face-background 'hl-line "navajo white")
+
+;; バファ履歴を次回Emacs起動時に保存する。
+(savehist-mode t)
+
+;; yesと入力するのは面倒なので y で十分
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; ファイル内のカーソル位置を記憶する
+(save-place-mode)
+
+;; 対応するカッコをハイライトする
+(show-paren-mode)
+
+;; 現在位置のファイル/URLを開く
+(ffap-bindings)
 
 ;; goto-line (デフォルトの M-g g は２ストロークなので、M-g に直接割り当てる。)
 (global-set-key (kbd "M-g") 'goto-line)
@@ -14,6 +30,10 @@
 
 ;; 行間を広げる
 (setq-default line-spacing 1)
+
+;; 行番号、桁番号をミニバッファに表示
+(line-number-mode 1)
+(column-number-mode 1)
 
 ;; C-h を backspace として使う
 (keyboard-translate ?\C-h ?\C-?)
