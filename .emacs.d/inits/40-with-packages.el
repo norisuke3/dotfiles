@@ -160,7 +160,23 @@
           ))
   (setq org-stuck-projects '("+LEVEL=2" ("TODO" "Wait")
                              ("someday" "material" "schedule" "wait" "nextAction")))
+  ;;How to fix “Symbol's function definition is void: org-babel-get-header”
+  ;; https://emacs.stackexchange.com/questions/37692/how-to-fix-symbols-function-definition-is-void-org-babel-get-header
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (shell . t)
+     ;; (python . t)
+     ;; (R . t)
+     ;; (ruby . t)
+     ;; (ditaa . t)
+     ;; (dot . t)
+     ;; (octave . t)
+     ;; (sqlite . t)
+     ;; (perl . t)
+     ))
   )
+
 
 (use-package magit
   :init
