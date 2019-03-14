@@ -26,6 +26,7 @@
     goto-chg
     go-mode
     go-autocomplete
+    go-dlv
     haskell-mode
     helm
     helm-swoop
