@@ -124,3 +124,12 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
   (when (one-window-p) (split-window-horizontally))
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
+
+(global-set-key (kbd "C-x o") 'nil)
+
+;; info
+(add-to-list 'Info-directory-list "/Users/norihamamoto/.emacs.d/info")
+
+;; dabbrev-expand
+(define-key input-decode-map [?\C-m] [C-m])
+(global-set-key (kbd "<C-m>") 'dabbrev-expand)
