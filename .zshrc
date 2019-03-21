@@ -62,6 +62,8 @@ setopt correct
 setopt list_packed
 setopt auto_cd
 
+# sudo -e with Emacs
+export EDITOR=emacsclient
 
 # load .zshrc.local
 if [[ -f ~/.zshrc.local ]]; then
