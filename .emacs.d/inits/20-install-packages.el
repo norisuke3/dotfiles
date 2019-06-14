@@ -52,6 +52,7 @@
     smex
     solidity-mode
     sticky
+    typescript-mode
     use-package
     viewer
     w3m
