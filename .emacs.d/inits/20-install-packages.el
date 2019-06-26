@@ -46,6 +46,7 @@
     minor-mode-hack
     ob-mongo
     restclient
+    rjsx-mode
     rvm
     recentf-ext
     sequential-command
