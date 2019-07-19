@@ -56,6 +56,7 @@
     typescript-mode
     use-package
     viewer
+    vue-mode
     w3m
     yasnippet
     yaml-mode
