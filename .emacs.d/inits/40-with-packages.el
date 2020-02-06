@@ -23,7 +23,7 @@
   ;;; 現在のシンボルをデフォルトのクエリにする
   (setq helm-ag-insert-at-point 'symbol)
   ;;; C-M-gはちょうどあいてる
-  (global-set-key (kbd "C-M-g") 'helm-ag)
+  (global-set-key (kbd "C-o") 'helm-ag)
   (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
   )
 
@@ -32,6 +32,7 @@
   :init
   (bind-key  "r" 'wdired-change-to-wdired-mode dired-mode-map))
 (define-key dired-mode-map (kbd "C-t") 'other-window-or-split)
+(define-key dired-mode-map (kbd "C-o") 'helm-ag)
 
 ;; emacsの矩形選択モード紹介
 ;; https://techblog.kayac.com/emacs-rectangle.html
@@ -325,8 +326,8 @@
   (define-key view-mode-map (kbd "m") 'bm-toggle)
   (define-key view-mode-map (kbd "[") 'bm-previous)
   (define-key view-mode-map (kbd "]") 'bm-next)
-  ;; occur
-  (define-key view-mode-map (kbd "o") 'occur)
+  ;; not occur, but helm-ag
+  (define-key view-mode-map (kbd "o") 'helm-ag)
   ;; other-window-or-split
   (define-key view-mode-map (kbd "t") 'other-window-or-split)
   )
