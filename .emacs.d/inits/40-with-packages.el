@@ -131,7 +131,7 @@
   (bind-keys :map global-map
              ((kbd "\C-cl") . org-store-link)
              ((kbd "\C-ca") . org-agenda))
-  (setq browse-url-browser-function 'w3m-browse-url)
+;;  (setq browse-url-browser-function 'w3m-browse-url)
   (global-set-key "\C-xm" 'browse-url-at-point)
   ;; org-capture
   (define-key global-map "\C-cc" 'org-capture)
