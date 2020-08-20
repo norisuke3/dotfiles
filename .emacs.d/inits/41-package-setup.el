@@ -6,6 +6,6 @@
 ;; isearch
 ;; http://emacs.rubikitch.com/ace-isearch/
 ;; http://emacs.rubikitch.com/ace-jump-mode/
-;; (global-ace-isearch-mode 1)
+(global-ace-isearch-mode 1)
 ;; (setq ace-isearch-jump-delay 0.4)
 ;; (setq ace-isearch-input-length 6)
