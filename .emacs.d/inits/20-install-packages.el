@@ -20,6 +20,7 @@
     color-moccur
     company-ghc
     dropdown-list
+    ein
     emmet-mode
     flycheck
     ghc
