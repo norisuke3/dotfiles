@@ -1,0 +1,9 @@
+#name :$(time)
+# --
+import time
+
+tic = time.time()
+
+toc = time.time()
+print("Time Elapsed: " + str((toc - tic) * 1000) + " ms")
+$0
