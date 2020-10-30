@@ -16,3 +16,5 @@ smex-items
 network-security.data
 .bm-repository
 *.elc
+history
+request
