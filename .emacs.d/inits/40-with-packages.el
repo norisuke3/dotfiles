@@ -56,6 +56,7 @@
 
 ;; Meadow/Emacs memo: ウィンドウ/フレーム関連 ― 分割・サイズ変更
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC404
+;; Note: ウィンドウの分割情報を任意のディレクトリのファイル(.windows)に保存/resume　C-z C-s
 (use-package windows
   :commands win:startup-with-window
   :init
