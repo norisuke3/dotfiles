@@ -335,6 +335,8 @@
   (define-key view-mode-map (kbd "o") 'helm-ag)
   ;; other-window-or-split
   (define-key view-mode-map (kbd "t") 'other-window-or-split)
+  ;; helm-imenu
+  (define-key view-mode-map (kbd "i") 'helm-imenu)
   )
 
 (use-package viewer
