@@ -11,10 +11,11 @@
 (use-package helm
   :bind (("C-;" . helm-for-files)
          ("C-'" . helm-swoop) ;; http://emacs.rubikitch.com/helm-swoop/
+         ("M-y" . helm-show-kill-ring)
+         ("C-o" . helm-ag)
          ("M-'" . helm-resume)
-         ("C-x C-'" . helm-resume))
-  :config
-  (bind-key "M-y" 'helm-show-kill-ring)
+         ("C-x C-'" . helm-resume)
+         )
   )
 
 (use-package helm-ag
@@ -23,7 +24,6 @@
   ;;; 現在のシンボルをデフォルトのクエリにする
   (setq helm-ag-insert-at-point 'symbol)
   ;;; C-M-gはちょうどあいてる
-  (global-set-key (kbd "C-o") 'helm-ag)
   (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
   )
 
