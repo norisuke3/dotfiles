@@ -8,6 +8,9 @@
 ;; #11 Emacs に革命を起こすパッケージ「helm」
 ;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
 ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
+(require 'helm-config)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+
 (use-package helm
   :bind (("C-;" . helm-for-files)
          ("C-'" . helm-swoop) ;; http://emacs.rubikitch.com/helm-swoop/
