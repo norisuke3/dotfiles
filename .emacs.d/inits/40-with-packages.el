@@ -11,13 +11,20 @@
 (require 'helm-config)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
+;; 初心者〜初級者のための Emacs-Helm 事始め : 前編
+;; https://qiita.com/jabberwocky0139/items/86df1d3108e147c69e2c
 (use-package helm
+  :init
+  (helm-mode 1)
   :bind (("C-;" . helm-for-files)
-         ("C-'" . helm-swoop) ;; http://emacs.rubikitch.com/helm-swoop/
-         ("M-y" . helm-show-kill-ring)
+         ("C-'" . helm-swoop)      ;; http://emacs.rubikitch.com/helm-swoop/
          ("C-o" . helm-ag)
+         ("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring)
          ("M-'" . helm-resume)
          ("C-x C-'" . helm-resume)
+         ("C-x C-f" . helm-find-files)
+         ("C-M-s" . helm-imenu)
          )
   )
 
@@ -329,8 +336,8 @@
   (define-key view-mode-map (kbd "K") 'View-scroll-line-backward)
   ;; bm.el の設定
   (define-key view-mode-map (kbd "m") 'bm-toggle)
-  (define-key view-mode-map (kbd "[") 'bm-previous)
-  (define-key view-mode-map (kbd "]") 'bm-next)
+  (define-key view-mode-map (kbd "[") 'bm-next)
+  (define-key view-mode-map (kbd "]") 'bm-previous)
   ;; not occur, but helm-ag
   (define-key view-mode-map (kbd "o") 'helm-ag)
   ;; other-window-or-split
@@ -373,6 +380,7 @@
   (define-overriding-view-mode-map ein:markdown-mode
     ("M-p" . ein:worksheet-move-cell-up-km)
     ("M-n" . ein:worksheet-move-cell-down-km)
+    ("e" . ein:worksheet-execute-cell-km)
     ("j" . ein:worksheet-goto-next-input-km)
     ("k" . ein:worksheet-goto-prev-input-km)
     ("n" . ein:worksheet-goto-next-input-km)
@@ -414,14 +422,6 @@
   (ido-vertical-mode 1)
   (ido-mode t)
   )
-
-;; smex
-;; (shell-command "open http://emacs.rubikitch.com/smex/")
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; sticky
 ;; 大文字入力を楽にする (Emacsテクニックバイブル 2-4)

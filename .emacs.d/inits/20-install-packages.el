@@ -52,7 +52,6 @@
     rvm
     recentf-ext
     sequential-command
-    smex
     solidity-mode
     sticky
     typescript-mode
