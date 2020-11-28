@@ -11,6 +11,8 @@ SITE_LISP   = "#{EMACS_D}/site-lisp"
 packages = %w(
   http://www.gentei.org/~yuuji/software/euc/windows.el
   http://www.gentei.org/~yuuji/software/euc/revive.el
+  https://www.emacswiki.org/emacs/download/yasnippet-config.el
+  https://www.emacswiki.org/emacs/download/point-undo.el
 )
 
 dotfiles = %w(

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: debug
+# --
+print("${1:b} : " + str($1))
+$0

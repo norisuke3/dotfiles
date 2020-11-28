@@ -111,6 +111,18 @@
         (signal 'quit "user quit!"))))
   (custom-set-variables '(yas/prompt-functions '(my-yas/prompt))))
 
+(use-package yasnippet-config
+  :config
+  (bind-keys :map yas-minor-mode-map
+             ((kbd "C-x y") . yas/register-oneshot-snippet)
+             ((kbd "C-x C-y") . yas/expand-oneshot-snippet)
+             ))
+
+(defun yas-expand-oneshot-snippet ()
+  (interactive)
+  (yas-expand-snippet yas/oneshot-snippet))
+
+
 (use-package auto-complete
   :commands auto-complete
   :init

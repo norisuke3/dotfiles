@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: plot
+# key: plot
+# --
+X = np.arange(20)
+Y = [ i**2 for i in X ]
+
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111)
+
+ax.title.set_text("Title")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+
+ax.plot(X, Y)
+
+fig.show()

@@ -12,10 +12,10 @@
       (append
        '((foreground-color . "black")
          (background-color . "white")
-         (width . 199)
-         (height . 70)
+         (width . 230)
+         (height . 71)
          (top . 0)
-         (left . 100)
+         (left . 20)
          )
        default-frame-alist))
 (setq initial-frame-alist default-frame-alist)
