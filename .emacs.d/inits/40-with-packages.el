@@ -464,3 +464,6 @@
 ;;   ;; riなどのエスケープシーケンスを処理し、色付けする
 ;;   (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on))
 
+(use-package vue-mode
+  :init
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
