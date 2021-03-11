@@ -90,9 +90,11 @@
                                yas-ido-prompt
                                yas-completing-prompt))
   (bind-keys :map yas-minor-mode-map
-             ((kbd "C-x i i") . yas-insert-snippet)
-             ((kbd "C-x i n") . yas-new-snippet)
-             ((kbd "C-x i v") . yas-visit-snippet-file))
+             ("C-x i i" . yas-insert-snippet)
+             ("C-x i n" . yas-new-snippet)
+             ("C-x i l" . yas-describe-tables)
+             ("C-x i v" . yas-visit-snippet-file)
+             ("C-x i g" . yas-reload-all))
   ;; anything-c-yasnippetを使わずにyasnippetをanythingインタフェースで選択する
   ;; http://memo.sugyan.com/entry/20120111/1326288445
   ;; https://github.com/sugyan/dotfiles/blob/master/.emacs.d/inits/04-yasnippet.el
