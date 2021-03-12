@@ -187,6 +187,9 @@
           ))
   (setq org-stuck-projects '("+LEVEL=2" ("TODO" "Wait")
                              ("someday" "material" "schedule" "wait" "nextAction")))
+  (bind-keys :map org-mode-map
+             ((kbd "C-'") . helm-swoop)) ;; overriding org-mode default mapping
+
   ;;How to fix “Symbol's function definition is void: org-babel-get-header”
   ;; https://emacs.stackexchange.com/questions/37692/how-to-fix-symbols-function-definition-is-void-org-babel-get-header
   (org-babel-do-load-languages
