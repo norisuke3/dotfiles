@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name :Vue state
+# key: state
+# --
+export default {
+  namespaced: ${1:true},
+  state: {
+    $0
+  },
+  getters: {
+  },
+  mutations: {
+  },
+  actions: {
+  }
+};

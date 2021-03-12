@@ -1,4 +1,5 @@
-#name :$(json.encoder)
+# name : json.NewEncoder
+# key: je
 # --
 b := bytes.NewBufferString("")
 json.NewEncoder(b).Encode($1)

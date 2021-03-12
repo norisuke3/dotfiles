@@ -1,4 +1,6 @@
-#name :$(debug.print)
+# -*- mode: snippet -*-
+# name :Debug Print
+# key: dp
 # --
-fmt.Printf("$1: '%${2:s}'\n", $3)
+fmt.Printf("$1: ${2:$$(yas-choose-value '("'%s'" "'%+v'" "'%#v'" "'%d'"))}\n", $3)
 $0
