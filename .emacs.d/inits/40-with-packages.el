@@ -149,7 +149,10 @@
   (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
   )
 
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
+;; Enable Flycheck
+;; https://www.flycheck.org/en/latest/index.html
+(use-package flycheck
+  :init (global-flycheck-mode))
 
 (use-package org
   :mode (("\\.org$" . org-mode))
