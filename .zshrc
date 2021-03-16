@@ -1,3 +1,5 @@
+# zmodload zsh/zprof && zprof
+
 typeset -U path PATH # PATHの重複登録防止
 export LANG=ja_JP.UTF-8
 bindkey -e
@@ -68,4 +70,10 @@ export EDITOR=emacsclient
 # load .zshrc.local
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
+fi
+
+# zprof
+# Uncomment the first line for showing profile on login
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
 fi
