@@ -1,5 +1,3 @@
-(package-initialize)
-
 ;; ~/.emacs.d/site-lisp 以下全部読み込み
 (let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
   (add-to-list 'load-path default-directory)
