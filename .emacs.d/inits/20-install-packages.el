@@ -23,6 +23,7 @@
     dropdown-list
     ein
     emmet-mode
+    fold-this
     flycheck
     ghc
     goto-chg

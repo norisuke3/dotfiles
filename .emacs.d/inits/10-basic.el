@@ -133,3 +133,6 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
 ;; dabbrev-expand
 (define-key input-decode-map [?\C-m] [C-m])
 (global-set-key (kbd "<C-m>") 'dabbrev-expand)
+
+;; fold-this
+(global-set-key (kbd "C-c C-f") 'fold-this)

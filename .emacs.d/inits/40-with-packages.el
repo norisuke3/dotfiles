@@ -424,7 +424,9 @@
     (run-shell-command
      "*Shell/Go*" (concat "go run " (buffer-file-name) "\n")))
   (bind-keys :map go-mode-map
-             ("C-c C-l" . go-build)))
+             ("C-c C-l" . go-build)
+             ("C-c f" . fold-this)
+             ))
 
 ;; sequential-command
 (use-package sequential-command-config
