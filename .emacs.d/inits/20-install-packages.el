@@ -5,6 +5,7 @@
 (when (require 'package nil t)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages//") t)
   (package-initialize))
 
 (defvar installing-package-list
@@ -19,7 +20,9 @@
     auto-install
     bm
     color-moccur
+    company
     company-ghc
+    dash
     dropdown-list
     ein
     emmet-mode
@@ -44,6 +47,7 @@
     js-comint
     jsx-mode
     key-chord
+    lsp-mode
     magit
     migemo
     minor-mode-hack
@@ -59,6 +63,7 @@
     use-package
     viewer
     vue-mode
+    which-key
     w3m
     yasnippet
     yaml-mode

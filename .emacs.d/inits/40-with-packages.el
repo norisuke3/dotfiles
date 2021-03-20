@@ -417,7 +417,6 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   :config
-  (require 'go-autocomplete)
   (defun go-build nil
     "go build"
     (interactive)
@@ -427,6 +426,17 @@
              ("C-c C-l" . go-build)
              ("C-c f" . fold-this)
              ))
+
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  (add-hook 'go-mode-hook #'lsp)
+  ;; :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+  ;;        (go-mode . lsp)
+  ;;        ;; if you want which-key integration
+         ;; (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
 ;; sequential-command
 (use-package sequential-command-config
