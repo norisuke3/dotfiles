@@ -16,21 +16,15 @@
     (process-send-string buffer-name command)))
 
 ;; Open a new buffer
-;; https://stackoverflow.com/questions/25791605/emacs-how-do-i-create-a-new-empty-buffer-whenever-creating-a-new-frame
-(defun lunaryorn-new-buffer-frame ()
-    "Create a new frame with a new empty buffer."
+(defun clip-region ()
+  "Create a new buffer with the current region."
   (interactive)
   (if (use-region-p)
-      (copy-to-new-buffer (region-beginning) (region-end))
-    (let ((buffer (generate-new-buffer "untitled")))
-      (pop-to-buffer buffer))))
+      (let ((str (buffer-substring (region-beginning) (region-end)))
+            (buffer (generate-new-buffer "untitled")))
+        (set-buffer buffer)
+        (insert str)
+        (pop-to-buffer buffer))
+    (message "the region must be active")))
 
-(global-set-key (kbd "C-c n") #'lunaryorn-new-buffer-frame)
-
-(defun copy-to-new-buffer (beginning end)
-  (progn
-    (kill-ring-save beginning end)
-    (let ((buffer (generate-new-buffer "untitled")))
-      (pop-to-buffer buffer))
-    (yank)))
-
+(global-set-key (kbd "C-c n") #'clip-region)
