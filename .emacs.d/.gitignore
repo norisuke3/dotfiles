@@ -22,3 +22,5 @@ request
 history
 abbrev_defs
 .lsp-session-v1
+init.local.el
+info-history
