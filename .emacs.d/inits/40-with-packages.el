@@ -19,6 +19,7 @@
   :bind (("C-;" . helm-for-files)
          ("C-'" . helm-swoop)      ;; http://emacs.rubikitch.com/helm-swoop/
          ("C-o" . helm-ag)
+         ("C-c o" . helm-org-agenda-files-headings)
          ("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ("M-'" . helm-resume)
