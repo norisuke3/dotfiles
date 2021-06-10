@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tb
+# --
+file_writer = tf.summary.FileWriter(logdir='logs/$1/', graph=g)
+$0
