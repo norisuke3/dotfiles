@@ -24,3 +24,4 @@ abbrev_defs
 .lsp-session-v1
 init.local.el
 info-history
+35-custom-file.el

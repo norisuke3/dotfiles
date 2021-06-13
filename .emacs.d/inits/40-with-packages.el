@@ -147,7 +147,7 @@
   (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
   :config
   ;; 自動コンパイルを無効にするファイルの正規表現
-  (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+  (setq auto-async-byte-compile-exclude-files-regexp "35-custom-file")
   )
 
 ;; Enable Flycheck
