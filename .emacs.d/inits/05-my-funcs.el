@@ -25,6 +25,8 @@
         (set-buffer buffer)
         (insert str)
         (pop-to-buffer buffer))
-    (message "the region must be active")))
+    (let ((buffer (get-buffer-create "*scratch*")))
+      (pop-to-buffer buffer)
+      (lisp-interaction-mode))))
 
 (global-set-key (kbd "C-c n") #'clip-region)
