@@ -18,6 +18,7 @@ packages = %w(
 dotfiles = %w(
   .zshrc
   .screenrc
+  .zshrc.bindkeys
 )
 
 namespace :emacs do
