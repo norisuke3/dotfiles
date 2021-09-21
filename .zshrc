@@ -67,6 +67,11 @@ setopt auto_cd
 # sudo -e with Emacs
 export EDITOR=emacsclient
 
+# load .zshrc.bindkeys
+if [[ -f ~/.zshrc.bindkeys ]]; then
+    source ~/.zshrc.bindkeys
+fi
+
 # load .zshrc.local
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local

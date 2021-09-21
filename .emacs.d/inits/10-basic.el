@@ -118,6 +118,7 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
 
 ;; shell-script-mode for .zshrc.loccal
 (add-to-list 'auto-mode-alist '("\\.zshrc.local$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.zshrc.bindkeys$" . shell-script-mode))
 
 (defun other-window-or-split ()
   (interactive)

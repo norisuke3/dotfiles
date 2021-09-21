@@ -1,0 +1,25 @@
+# GHQ
+function _cd-ghq () {
+  if ! type ghq > /dev/null 2>&1; then
+      echo "ghq is required to run this command. Please install it."
+      zle accept-line
+      return
+  fi
+
+  if ! type peco > /dev/null 2>&1; then
+      echo "peco is required to run this command. Please install it."
+      zle accept-line
+      return
+  fi
+
+  local selected_dir=$(ghq list -p | peco --prompt "GHQ>")
+  if [ -n "$selected_dir" ]; then
+      BUFFER="cd ${selected_dir}"
+      zle accept-line
+  fi
+
+  zle clear-screen
+}
+
+zle -N _cd-ghq
+bindkey "^i^r" _cd-ghq
