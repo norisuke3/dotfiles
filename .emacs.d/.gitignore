@@ -26,3 +26,5 @@ init.local.el
 info-history
 35-custom-file.el
 junk
+inits/80-local.el
+inits/90-custom-file.el
