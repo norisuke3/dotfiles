@@ -34,6 +34,7 @@
     go-dlv
     haskell-mode
     helm
+    helm-ghq
     helm-swoop
     helm-w3m
     helm-ag

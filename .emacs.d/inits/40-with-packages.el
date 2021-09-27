@@ -38,6 +38,9 @@
   (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
   )
 
+;; helm-ghq
+(require 'helm-ghq)
+
 (use-package wdired
   :commands wdired-change-to-wdired-mode
   :init
