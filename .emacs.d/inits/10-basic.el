@@ -126,8 +126,6 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
   (other-window 1))
 (global-set-key (kbd "C-t") 'other-window-or-split)
 
-(global-set-key (kbd "C-x o") 'nil)
-
 ;; info
 (add-to-list 'Info-directory-list "/Users/norihamamoto/.emacs.d/info")
 
