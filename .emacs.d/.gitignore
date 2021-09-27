@@ -26,5 +26,6 @@ init.local.el
 info-history
 35-custom-file.el
 junk
+inits/43-experimental.el
 inits/80-local.el
 inits/90-custom-file.el
