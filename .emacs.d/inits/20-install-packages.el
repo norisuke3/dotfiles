@@ -32,6 +32,9 @@
     go-mode
     go-autocomplete
     go-dlv
+    graphql
+    graphql-doc
+    graphql-mode
     haskell-mode
     helm
     helm-ghq

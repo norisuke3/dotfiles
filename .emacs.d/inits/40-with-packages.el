@@ -497,3 +497,11 @@
 (use-package jq-mode
   :mode (("\\.jq$" . jq-mode))
   )
+
+;; graphql-doc-mode
+(add-hook 'graphql-doc-mode-hook
+          (lambda ()
+            (bind-keys :map graphql-doc-mode-map
+                       ("TAB" . forward-button)
+                       ("<S-tab>" . backward-button)
+                       ("l" . graphql-doc-go-back))))
