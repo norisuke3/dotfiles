@@ -56,6 +56,7 @@
     migemo
     minor-mode-hack
     ob-mongo
+    protobuf-mode
     restclient
     rjsx-mode
     rvm
