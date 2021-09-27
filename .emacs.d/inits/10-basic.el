@@ -129,9 +129,9 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
 ;; info
 (add-to-list 'Info-directory-list "/Users/norihamamoto/.emacs.d/info")
 
-;; dabbrev-expand
+;; separate functionality from C-m and C-i from RET and TAB respectively
 (define-key input-decode-map [?\C-m] [C-m])
-(global-set-key (kbd "<C-m>") 'dabbrev-expand)
+(define-key input-decode-map [?\C-i] [C-i])
 
 ;; fold-this
 (global-set-key (kbd "C-c C-f") 'fold-this)
