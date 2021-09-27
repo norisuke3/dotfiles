@@ -491,3 +491,9 @@
 (use-package vue-mode
   :init
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
+
+;; jq-mode
+;; https://github.com/ljos/jq-mode
+(use-package jq-mode
+  :mode (("\\.jq$" . jq-mode))
+  )

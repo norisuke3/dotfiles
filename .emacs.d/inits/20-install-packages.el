@@ -43,6 +43,7 @@
     ido-vertical-mode
     inf-ruby
     init-loader
+    jq-mode
     js2-mode
     js-comint
     jsx-mode
