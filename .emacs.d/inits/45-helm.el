@@ -7,13 +7,25 @@
       )
 ;; 情報源の設定
 ;; helm-source-file-cache のキャッシュは、.emacs.d/init.local.el で設定。
-(setq helm-for-files-preferred-list
-      '(helm-source-bookmarks
-        helm-source-buffers-list
-        helm-ghq-source
-        helm-source-recentf
-        helm-source-file-cache
-        helm-source-files-in-current-dir
-        ;; 必要とあれば
-        helm-source-bookmark-set
-        helm-source-locate))
+(if (executable-find "ghq")
+    ;; with ghq
+    (setq helm-for-files-preferred-list
+          '(helm-source-bookmarks
+            helm-source-buffers-list
+            helm-ghq-source
+            helm-source-recentf
+            helm-source-file-cache
+            helm-source-files-in-current-dir
+            ;; 必要とあれば
+            helm-source-bookmark-set
+            helm-source-locate))
+  ;; without ghq
+  (setq helm-for-files-preferred-list
+        '(helm-source-bookmarks
+          helm-source-buffers-list
+          helm-source-recentf
+          helm-source-file-cache
+          helm-source-files-in-current-dir
+          ;; 必要とあれば
+          helm-source-bookmark-set
+          helm-source-locate)))
