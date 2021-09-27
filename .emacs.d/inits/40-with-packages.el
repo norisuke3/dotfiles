@@ -505,3 +505,10 @@
                        ("TAB" . forward-button)
                        ("<S-tab>" . backward-button)
                        ("l" . graphql-doc-go-back))))
+
+(use-package yaml-mode
+  :mode (("\\.yaml$" . yaml-mode))
+  :init
+  :config
+  (bind-keys :map yaml-mode-map
+             ("C-c C-g" . open-github-at-point)))
