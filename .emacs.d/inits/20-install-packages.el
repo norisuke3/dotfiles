@@ -41,6 +41,7 @@
     helm-swoop
     helm-w3m
     helm-ag
+    helm-bm
     hindent
     iflipb
     ido-vertical-mode
