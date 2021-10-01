@@ -234,8 +234,8 @@
   :init
   (bind-keys :map global-map
              ([?\C-\M- ]  . bm-toggle)
-             ((kbd "M-[") . bm-previous)
-             ((kbd "M-]") . bm-next))
+             ((kbd "M-[") . bm-next)
+             ((kbd "M-]") . bm-previous))
   ;; マークのセーブ
   (setq-default bm-buffer-persistence t)
   ;; セーブファイル名の設定
