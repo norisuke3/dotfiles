@@ -515,3 +515,25 @@
   :config
   (bind-keys :map yaml-mode-map
              ("C-c C-g" . open-github-at-point)))
+
+;; gist.el -- Emacs integration for gist.github.com
+;; https://github.com/defunkt/gist.el
+;; Gist on Emacs
+;; https://minorugh.xsrv.jp/post/2021/0901-gist-on-emacs/
+;; 以下、yagist.el ではなくて、(多分本家の)gist.el で設定。
+;; ** github で、gist scope の personal access token の設定が必要。 **
+(use-package gist
+  :ensure t
+  :bind (("C-c y" . gist-region-or-buffer)
+         ("C-c g" . open-gist-web-page))
+  :config
+  (bind-keys :map gist-list-menu-mode-map
+             ("d" . gist-kill-current)
+             ("r" . gist-edit-current-description))
+  ;; POSTに成功したあと当該WEBページをプラウザで開く
+  (setq gist-view-gist t)
+
+  (defun open-gist-web-page ()
+    "Open GitHub Gist page with chrome."
+    (interactive)
+    (browse-url "https://gist.github.com/norisuke3")))
