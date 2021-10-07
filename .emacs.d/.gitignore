@@ -29,3 +29,4 @@ junk
 inits/43-experimental.el
 inits/80-local.el
 inits/90-custom-file.el
+var

@@ -15,3 +15,7 @@ symlink:
 	ln -svf `pwd`/.zshrc ${HOME}
 	ln -svf `pwd`/.screenrc ${HOME}
 	ln -svf `pwd`/.zshrc.bindkeys ${HOME}
+
+.PHONY: symlink_emacs
+symlink_emacs:
+	ln -svf `pwd`/.emacs.d ${HOME}
