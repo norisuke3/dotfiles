@@ -5,42 +5,42 @@
          ;; comment-line が元々 "C-x C-;" に割り当てられていたので "M-;" に移動。
          ("M-;" . comment-line)))
 
-;; #11 Emacs に革命を起こすパッケージ「helm」
-;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
-;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
-(require 'helm-config)
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
+;; ;; #11 Emacs に革命を起こすパッケージ「helm」
+;; ;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
+;; ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
+;; (require 'helm-config)
+;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
-;; 初心者〜初級者のための Emacs-Helm 事始め : 前編
-;; https://qiita.com/jabberwocky0139/items/86df1d3108e147c69e2c
-(use-package helm
-  :init
-  (helm-mode 1)
-  :bind (("C-;" . helm-for-files)
-         ("C-'" . helm-swoop)      ;; http://emacs.rubikitch.com/helm-swoop/
-         ("C-o" . helm-ag)
-         ("C-c o" . helm-org-agenda-files-headings)
-         ("M-x" . helm-M-x)
-         ("M-y" . helm-show-kill-ring)
-         ("M-'" . helm-resume)
-         ("C-x C-'" . helm-resume)
-         ("C-x C-f" . helm-find-files)
-         ("C-M-s" . helm-imenu)
-         ("M-{" . helm-bm)
-         )
-  )
+;; ;; 初心者〜初級者のための Emacs-Helm 事始め : 前編
+;; ;; https://qiita.com/jabberwocky0139/items/86df1d3108e147c69e2c
+;; (use-package helm
+;;   :init
+;;   (helm-mode 1)
+;;   :bind (("C-;" . helm-for-files)
+;;          ("C-'" . helm-swoop)      ;; http://emacs.rubikitch.com/helm-swoop/
+;;          ("C-o" . helm-ag)
+;;          ("C-c o" . helm-org-agenda-files-headings)
+;;          ("M-x" . helm-M-x)
+;;          ("M-y" . helm-show-kill-ring)
+;;          ("M-'" . helm-resume)
+;;          ("C-x C-'" . helm-resume)
+;;          ("C-x C-f" . helm-find-files)
+;;          ("C-M-s" . helm-imenu)
+;;          ("M-{" . helm-bm)
+;;          )
+;;   )
 
-(use-package helm-ag
-  :init
-  (setq helm-ag-base-command "rg --vimgrep --no-heading")
-  ;;; 現在のシンボルをデフォルトのクエリにする
-  (setq helm-ag-insert-at-point 'symbol)
-  ;;; C-M-gはちょうどあいてる
-  (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
-  )
+;; (use-package helm-ag
+;;   :init
+;;   (setq helm-ag-base-command "rg --vimgrep --no-heading")
+;;   ;;; 現在のシンボルをデフォルトのクエリにする
+;;   (setq helm-ag-insert-at-point 'symbol)
+;;   ;;; C-M-gはちょうどあいてる
+;;   (global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
+;;   )
 
-;; helm-ghq
-(require 'helm-ghq)
+;; ;; helm-ghq
+;; (require 'helm-ghq)
 
 (use-package wdired
   :commands wdired-change-to-wdired-mode

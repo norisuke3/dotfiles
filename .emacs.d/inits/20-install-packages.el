@@ -73,6 +73,13 @@
     w3m
     yasnippet
     yaml-mode
+    vertico
+    consult
+    consult-ghq
+    marginalia
+    orderless
+    embark
+    embark-consult
     ))
 
 (let ((not-installed (loop for x in installing-package-list
