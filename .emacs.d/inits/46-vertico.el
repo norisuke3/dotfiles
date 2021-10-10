@@ -34,10 +34,10 @@
   (vertico-mode)
 
   ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
+  ;; (setq vertico-resize nil)
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
+  (setq vertico-cycle t)
   )
 
 ;; Optionally use the `orderless' completion style. See
@@ -53,6 +53,11 @@
   (setq completion-styles '(orderless)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package consult
+  :bind (("C-;" . consult-buffer)
+         ("C-o" . consult-ripgrep)
+         ))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 ;; (use-package savehist

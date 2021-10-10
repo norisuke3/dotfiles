@@ -47,7 +47,7 @@
   :init
   (bind-key  "r" 'wdired-change-to-wdired-mode dired-mode-map))
 (define-key dired-mode-map (kbd "C-t") 'other-window-or-split)
-(define-key dired-mode-map (kbd "C-o") 'helm-ag)
+(define-key dired-mode-map (kbd "C-o") 'consult-ripgrep)
 (define-key dired-mode-map (kbd "f") 'helm-find)
 
 ;; emacsの矩形選択モード紹介
