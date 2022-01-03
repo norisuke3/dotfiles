@@ -82,3 +82,20 @@ fi
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
+
+# zaw
+# zaw cdr -  http://yagays.github.io/blog/2013/05/20/zaw-zsh/
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+
+if [ -f "$HOME/go/src/github.com/zsh-users/zaw/zaw.zsh" ]; then
+    source ~/go/src/github.com/zsh-users/zaw/zaw.zsh
+else
+    echo "run 'ghq get https://github.com/zsh-users/zaw.git' to use zaw"
+fi
+zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
+bindkey '^h' zaw-history
+bindkey '^@' zaw-cdr                         # zaw-cdrをbindkey
