@@ -195,6 +195,7 @@
           ))
   (setq org-stuck-projects '("+LEVEL=2" ("TODO" "Wait")
                              ("someday" "material" "schedule" "wait" "nextAction")))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
   (bind-keys :map org-mode-map
              ((kbd "C-'") . helm-swoop)
              ("M-{" . helm-bm)
