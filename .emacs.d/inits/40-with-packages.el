@@ -50,12 +50,15 @@
 (define-key dired-mode-map (kbd "C-o") 'helm-ag)
 (define-key dired-mode-map (kbd "f") 'helm-find)
 
+;; 以下、use-package の upgrade で use-package がエラーを出すようになったので、直接設定を行うことにした。
 ;; emacsの矩形選択モード紹介
 ;; https://techblog.kayac.com/emacs-rectangle.html
-(use-package cua-mode
-  :init
-  (cua-mode t)
-  (setq cua-enable-cua-keys nil))
+;; (use-package cua-mode
+;;   :config
+;;   (cua-mode t)
+;;   (setq cua-enable-cua-keys nil))
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
 
 ;; カーソルの位置を戻す
 ;; https://qiita.com/icb54615/items/5ff996a5c708631824aa
@@ -452,16 +455,22 @@
   (sequential-command-setup-keys)
   )
 
+;; 以下、use-package の upgrade で use-package がエラーを出すようになったので、直接設定を行うことにした。
 ;; ido-vertical-mode.el : idoの候補を縦に並べ、helmっぽい見た目にする！
 ;; (shell-command "open http://emacs.rubikitch.com/ido-vertical-mode/")
-(use-package ido-mode
-  :init
-  (setq ido-enable-flex-matching t)
-  (setq ido-max-window-height 0.75)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-  (ido-vertical-mode 1)
-  (ido-mode t)
-  )
+;; (use-package ido-mode
+;;   :init
+;;   (setq ido-enable-flex-matching t)
+;;   (setq ido-max-window-height 0.75)
+;;   (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+;;   (ido-vertical-mode 1)
+;;   (ido-mode t)
+;;   )
+(setq ido-enable-flex-matching t)
+(setq ido-max-window-height 0.75)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(ido-vertical-mode 1)
+(ido-mode t)
 
 ;; sticky
 ;; 大文字入力を楽にする (Emacsテクニックバイブル 2-4)
