@@ -47,6 +47,13 @@
 ;; 時刻をモードラインに表示
 (display-time)
 
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p) (split-window-horizontally))
+  (other-window 1))
+(global-set-key (kbd "C-t") 'other-window-or-split)
+(define-key dired-mode-map (kbd "C-t") 'other-window-or-split)
+
 ;; color-moccur
 (require 'color-moccur)
 
@@ -119,12 +126,6 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
 ;; shell-script-mode for .zshrc.loccal
 (add-to-list 'auto-mode-alist '("\\.zshrc.local$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.zshrc.bindkeys$" . shell-script-mode))
-
-(defun other-window-or-split ()
-  (interactive)
-  (when (one-window-p) (split-window-horizontally))
-  (other-window 1))
-(global-set-key (kbd "C-t") 'other-window-or-split)
 
 ;; info
 (add-to-list 'Info-directory-list "/Users/norihamamoto/.emacs.d/info")
