@@ -548,8 +548,17 @@
     (interactive)
     (browse-url "https://gist.github.com/norisuke3")))
 
-;; EAF (Emacs Application Framework)
-;; https://github.com/emacs-eaf/emacs-application-framework
+;; helper function for eaf-search-it
+;; supporting searching dictionary when the searfch word is prefixed with "i "
+(defun search-it (search-words)
+  "searchs google or other searching site"
+  (interactive "M[EAF/browser/custom] SEARCH-WORDS: ")
+  (if (string= (substring search-words 0 2) "i ")
+      (eaf-search-it (substring search-words 2) "dictionary")
+    (eaf-search-it search-words)))
+
+EAF (Emacs Application Framework)
+https://github.com/emacs-eaf/emacs-application-framework
 (use-package eaf
   :load-path "~/.emacs.d/emacs-application-framework"
   :custom
@@ -563,5 +572,9 @@
   (defalias 'browse-web #'eaf-open-browser)
   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key nil "C-t" eaf-browser-keybinding)
+  (eaf-bind-key search-it "M-t" eaf-browser-keybinding)
+  (bind-key "M-t" 'search-it) ;; to the global-map
   ;; (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+(define-key eaf-mode-map (kbd "C-t") 'other-window-or-split)
