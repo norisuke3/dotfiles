@@ -101,13 +101,13 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
- (set-exec-path-from-shell-PATH)
+ ;; (set-exec-path-from-shell-PATH)
 
-;; ウィンドウ間を Shift + arrow で移動する。
-;; (windmove-default-keybindings)
-;; (setq windmove-wrap-around t)
-;; (define-key global-map [?\C->] 'windmove-right)
-;; (define-key global-map [?\C-<] 'windmove-lef)t
+ウィンドウ間を Shift + arrow で移動する。
+(windmove-default-keybindings)
+(setq windmove-wrap-around t)
+(define-key global-map [?\C->] 'windmove-right)
+(define-key global-map [?\C-<] 'windmove-lef)t
 
 ;; M-r でバッファを再読込する
 (defun revert-buffer-no-confirm (&optional force-reverting)
@@ -130,9 +130,9 @@ the user's shell. This is particularly useful under Mac OSX, where GUI apps are
 ;; info
 (add-to-list 'Info-directory-list "/Users/norihamamoto/.emacs.d/info")
 
-;; separate functionality from C-m and C-i from RET and TAB respectively
-(define-key input-decode-map [?\C-m] [C-m])
-(define-key input-decode-map [?\C-i] [C-i])
+;; ;; separate functionality from C-m and C-i from RET and TAB respectively
+;; (define-key input-decode-map [?\C-m] [C-m])
+;; (define-key input-decode-map [?\C-i] [C-i])
 
 ;; fold-this
 (global-set-key (kbd "C-c C-f") 'fold-this)
