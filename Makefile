@@ -12,10 +12,11 @@ tasks:
 .PHONY: symlink
 symlink:
 	ln -svf `pwd`/.emacs.d ${HOME}
-	ln -svf `pwd`/.zshrc ${HOME}
-	ln -svf `pwd`/.screenrc ${HOME}
-	ln -svf `pwd`/.zshrc.bindkeys ${HOME}
+	ln -svf `pwd`/.gitconfig ${HOME}
 	ln -svf `pwd`/.peco ${HOME}
+	ln -svf `pwd`/.screenrc ${HOME}
+	ln -svf `pwd`/.zshrc ${HOME}
+	ln -svf `pwd`/.zshrc.bindkeys ${HOME}
 
 .PHONY: symlink_emacs
 symlink_emacs:

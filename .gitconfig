@@ -1,0 +1,14 @@
+[user]
+	name = Noriaki Hamamoto
+	email = norisuke3@gmail.com
+[color]
+	ui = auto
+[color "diff"]
+	meta = magenta
+[core]
+	excludesfile = /Users/nori/.ggignore
+	editor = emacsclient
+[url "https://"]
+	insteadOf = git://
+[ghq]
+  root = ~/go/src
