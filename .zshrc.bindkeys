@@ -22,4 +22,4 @@ function _cd-ghq () {
 }
 
 zle -N _cd-ghq
-bindkey "^i^r" _cd-ghq
+bindkey "^i^e" _cd-ghq
