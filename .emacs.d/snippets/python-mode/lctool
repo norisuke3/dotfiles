@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: langchain tool
+# key: lctool
+# --
+from langchain.tools import tool
+
+@tool
+def _search(input: str) -> str:
+"""like a gorilla!!."""
+return f"Ooh ooh! {input}"
