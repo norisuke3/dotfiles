@@ -1,2 +1,6 @@
 tmp/*
 .DS_Store
+.emacs30.d/elpa/*
+!.emacs30.d/elpa/.gitkeep
+transient/
+
