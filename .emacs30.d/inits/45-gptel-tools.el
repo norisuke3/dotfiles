@@ -1,15 +1,21 @@
 (require 'gptel)
 (require 'mcp)
 
+(defun log-message-to-buffer (buffer-name format-string &rest args)
+  "バッファ BUFFER-NAME に書式付きメッセージを挿入します。
+FORMAT-STRING は書式文字列、ARGS は書式文字列に渡す引数です。
+message 関数と同様に動作しますが、BUFFER-NAME で指定されたバッファに出力し、最後に改行を追加します。"
+  (with-current-buffer (get-buffer-create buffer-name)
+    (let ((msg (apply 'format format-string args)))
+      (insert msg)
+      (insert "\n")
+      msg)))
+
 (defun log-gptel-message (format-string &rest args)
   "\"*gptel event*\" バッファに書式付きメッセージを挿入し、バッファを表示します。
 FORMAT-STRING は書式文字列、ARGS は書式文字列に渡す引数です。
 message 関数と同様に動作しますが、\"*gptel event*\" バッファに固定で出力し、最後に改行を追加します。"
-  (with-current-buffer (get-buffer-create "*gptel event*")
-    (let ((msg (apply 'format format-string args)))
-      (insert msg)
-      (insert "\n")  ; message は改行しないので追加
-      msg)))
+  (apply 'log-message-to-buffer "*gptel event*" format-string args))
 
 ;; *
 ;; * local functions
