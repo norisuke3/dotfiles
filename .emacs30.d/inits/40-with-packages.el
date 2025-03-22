@@ -312,3 +312,26 @@ CONFIGS は (:lang, :fname, :name, :bind) のプロパティを持つ plist の�
   (setq win:use-frame nil)
   (bind-key "\C-xC" 'see-you-again))
 (win:startup-with-window)
+
+
+;; pdf-tools
+;; - Emacsでpdfを読む (pdf-tools) (2019.07.17追記) | A perfect autumn day
+;;   https://taipapamotohus.com/post/pdf-tools/
+(use-package pdf-tools
+  :ensure t
+  :config
+  ;; initialise
+  (pdf-tools-install)
+  ;; PDF Tools does not work well together with linum-mode
+  (add-hook 'pdf-view-mode-hook (lambda() (nlinum-mode -1)))
+  ;; 自動的に注釈モードを有効にする
+  (add-hook 'pdf-view-mode-hook 'pdf-annot-minor-mode)
+  ;; open pdfs scaled to fit page
+  ;; (setq-default pdf-view-display-size 'fit-page)
+  ;; automatically annotate highlights
+  (setq pdf-annot-activate-created-annotations t)
+  ;; use normal isearch
+  ;; (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+  ;; more fine-grained zooming
+  (setq pdf-view-resize-factor 1.1)
+  )
