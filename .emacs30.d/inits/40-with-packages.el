@@ -49,6 +49,69 @@
 
 (global-set-key (kbd "C-c RET") 'gptel-send)
 
+
+;; gptel-request を使って選択範囲を指定した言語に翻訳する。
+(defun translate (configs)
+  "複数の言語への翻訳機能をセットアップします。
+CONFIGS は (:lang, :fname, :name, :bind) のプロパティを持つ plist の配列です。"
+  (dolist (config configs)
+    (let ((lang (plist-get config :lang))
+          (fname (plist-get config :fname))
+          (name (plist-get config :name))
+          (bind (plist-get config :bind)))
+
+      ;; 翻訳関数の定義
+      (defalias fname
+        `(lambda ()
+           ,(format "選択したリージョンを%sに翻訳して新しいバッファに表示します。
+翻訳バッファが存在する場合はそれを利用し、存在しない場合は新規に作成します。" name)
+           (interactive)
+           (let ((str nil))
+             ;; pdf-view-mode のときは cua-copy-regionで、それ以外のモードのときは、buffer-substring
+             ;; を使って選択されたテキストを取得する。(pdf-view-mode では、buffer-substring が使えない。)
+             (if (eq major-mode 'pdf-view-mode)
+                 (progn
+                   (cua-copy-region)
+                   (setq str (current-kill 0)))
+               (if (use-region-p)
+                   (setq str (buffer-substring (region-beginning) (region-end)))))
+             (if str
+                 (let ((buffer (or (get-buffer "translation") (generate-new-buffer "translation"))))
+                   (with-current-buffer buffer
+                     ;; コールバックを指定
+                     (gptel-request str
+                       :system ,(format "translate to %s" lang)
+                       :callback (lambda (response info)
+                                   (if (stringp response)
+                                       (insert (format "---\n%s\n\n" response))
+                                     (insert (format "Error: %s" (plist-get info :status))))))
+                     ;; バッファを表示
+                     (pop-to-buffer buffer)))
+               (let ((buffer (get-buffer-create "*scratch*")))
+                 (pop-to-buffer buffer)
+                 (lisp-interaction-mode))))))
+
+      ;; キーバインドの設定
+      (global-set-key (kbd bind) fname))))
+
+;; 翻訳先言語とキーバインディング設定
+(translate
+ (list
+  '(:lang "Japanese" :fname translate-to-japanese :name "日本語" :bind "C-c t j")
+  '(:lang "Korean" :fname translate-to-korean :name "韓国語" :bind "C-c t k")
+  '(:lang "Traditional Chinese" :fname translate-to-tchinese :name "中国語(繁体字)" :bind "C-c t c t")
+  '(:lang "Simplified Chinese" :fname translate-to-schinese :name "中国語(簡体字)" :bind "C-c t c s")
+  '(:lang "Thai" :fname translate-to-thai :name "タイ語" :bind "C-c t t")
+  '(:lang "English" :fname translate-to-english :name "英語" :bind "C-c t e")
+  '(:lang "French" :fname translate-to-french :name "フランス語" :bind "C-c t f")
+  '(:lang "Spanish" :fname translate-to-spanish :name "スペイン語" :bind "C-c t s")
+  '(:lang "German" :fname translate-to-german :name "ドイツ語" :bind "C-c t d")
+  '(:lang "Vietnamese" :fname translate-to-vietnamese :name "ベトナム語" :bind "C-c t v")))
+
+;; 旧キーバインドの互換性維持
+(global-set-key (kbd "C-c j") #'translate-to-japanese)
+
+
 ;; #11 Emacs に革命を起こすパッケージ「helm」
 ;; http://emacs.rubikitch.com/sd1503-helm/ (Software Design 2015年3月号掲載記事)
 ;; http://emacs.rubikitch.com/sd1504-helm/ (Software Design 2015年4月号掲載記事)
