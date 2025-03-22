@@ -50,7 +50,18 @@
 (global-set-key (kbd "C-c RET") 'gptel-send)
 
 
-;; gptel-request を使って選択範囲を指定した言語に翻訳する。
+(defun translate-get-text ()
+  "選択されたテキストを取得します。pdf-view-mode の場合は cua-copy-region を使用し、
+それ以外は buffer-substring を使用します。"
+  (let ((str nil))
+    (if (eq major-mode 'pdf-view-mode)
+        (progn
+          (cua-copy-region)
+          (setq str (current-kill 0)))
+      (if (use-region-p)
+          (setq str (buffer-substring (region-beginning) (region-end)))))
+    str))
+
 (defun translate (configs)
   "複数の言語への翻訳機能をセットアップします。
 CONFIGS は (:lang, :fname, :name, :bind) のプロパティを持つ plist の配列です。"
@@ -66,15 +77,7 @@ CONFIGS は (:lang, :fname, :name, :bind) のプロパティを持つ plist の�
            ,(format "選択したリージョンを%sに翻訳して新しいバッファに表示します。
 翻訳バッファが存在する場合はそれを利用し、存在しない場合は新規に作成します。" name)
            (interactive)
-           (let ((str nil))
-             ;; pdf-view-mode のときは cua-copy-regionで、それ以外のモードのときは、buffer-substring
-             ;; を使って選択されたテキストを取得する。(pdf-view-mode では、buffer-substring が使えない。)
-             (if (eq major-mode 'pdf-view-mode)
-                 (progn
-                   (cua-copy-region)
-                   (setq str (current-kill 0)))
-               (if (use-region-p)
-                   (setq str (buffer-substring (region-beginning) (region-end)))))
+           (let ((str (translate-get-text)))
              (if str
                  (let ((buffer (or (get-buffer "*Translation*") (generate-new-buffer "*Translation*"))))
                    (with-current-buffer buffer
