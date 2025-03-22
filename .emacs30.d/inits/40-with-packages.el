@@ -8,36 +8,45 @@
     (unless (string-empty-p output)
       (string-trim output))))
 
-;; キーチェーンからAPIキーを取得し、環境変数に設定
-(let ((api-key (get-mac-keychain-password "norisuke3@gmail.com" "OpenRouter")))
-  (when api-key
-    (setenv "OPENROUTER_API_KEY_GPTEL" api-key)))
+;; OpenAI
+(setq gptel-api-key (get-mac-keychain-password "norisuke3@gmail.com" "OpenAI"))
 
-;; gptel
-(setq gptel-model   'google/gemini-2.0-flash-001
-    gptel-backend
-    (gptel-make-openai "OpenRouter"
-      :host "openrouter.ai"
-      :endpoint "/api/v1/chat/completions"
-      :stream t
-      :key (lambda () (getenv "OPENROUTER_API_KEY_GPTEL"))
-      :models '(google/gemini-2.0-flash-001
-                google/gemini-2.0-flash-thinking-exp:free
-                anthropic/claude-3.7-sonnet:thinking
-                anthropic/claude-3.7-sonnet
-                openai/o3-mini
-                openai/o3-mini-high
-                perplexity/llama-3.1-sonar-large-128k-online
-                deepseek/deepseek-r1
-                deepseek/deepseek-r1:free
-                deepseek/deepseek-chat
-                deepseek/deepseek-chat:free
-                ;; mistralai/mixtral-8x7b-instruct
-                ;; meta-llama/codellama-34b-instruct
-                ;; codellama/codellama-70b-instruct
-                ;; google/palm-2-codechat-bison-32k
-                ;; google/gemini-pro
-                )))
+;; Antropic Calude
+;; (setq
+;;  gptel-model 'claude-3-sonnet-20240229 ;  "claude-3-opus-20240229" also available
+;;  gptel-backend (gptel-make-anthropic "Claude"
+;;                  :stream t :key (get-mac-keychain-password "miscs3@gmail.com" "Anthropic")))
+
+
+;; OpenRouter
+(gptel-make-openai "OpenRouter"
+  :host "openrouter.ai"
+  :endpoint "/api/v1/chat/completions"
+  :stream t
+  :key (get-mac-keychain-password "norisuke3@gmail.com" "OpenRouter")
+  :models '(google/gemini-2.0-flash-001
+            google/gemini-2.0-flash-lite-001
+            google/gemini-2.0-flash-lite-preview-02-05:free
+            google/gemini-2.0-flash-thinking-exp:free
+            anthropic/claude-3.7-sonnet:thinking
+            anthropic/claude-3.7-sonnet
+            anthropic/claude-3.5-sonnet
+             openai/gpt-4o-2024-11-20
+            openai/gpt-4o-mini
+            openai/o3-mini
+            openai/o3-mini-high
+            perplexity/sonar
+            deepseek/deepseek-r1
+            deepseek/deepseek-r1:free
+            deepseek/deepseek-chat
+            deepseek/deepseek-chat:free
+            ;; mistralai/mixtral-8x7b-instruct
+            ;; meta-llama/codellama-34b-instruct
+            ;; codellama/codellama-70b-instruct
+            ;; google/palm-2-codechat-bison-32k
+            ;; google/gemini-pro
+            ))
+
 (global-set-key (kbd "C-c RET") 'gptel-send)
 
 ;; #11 Emacs に革命を起こすパッケージ「helm」
