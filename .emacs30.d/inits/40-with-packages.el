@@ -76,17 +76,25 @@ CONFIGS は (:lang, :fname, :name, :bind) のプロパティを持つ plist の�
                (if (use-region-p)
                    (setq str (buffer-substring (region-beginning) (region-end)))))
              (if str
-                 (let ((buffer (or (get-buffer "translation") (generate-new-buffer "translation"))))
+                 (let ((buffer (or (get-buffer "*Translation*") (generate-new-buffer "*Translation*"))))
                    (with-current-buffer buffer
                      ;; コールバックを指定
                      (gptel-request str
                        :system ,(format "translate to %s" lang)
                        :callback (lambda (response info)
+                                   (setq buffer-read-only nil)
+                                   (goto-char (point-max))
                                    (if (stringp response)
                                        (insert (format "---\n%s\n\n" response))
-                                     (insert (format "Error: %s" (plist-get info :status))))))
-                     ;; バッファを表示
-                     (pop-to-buffer buffer)))
+                                     (insert (format "Error: %s" (plist-get info :status))))
+                                   (setq buffer-read-only t)))
+                     ;; バッファを読み取り専用に設定
+                     (read-only-mode 1)
+                     ;; q でquit-windowを呼ぶ
+                     (local-set-key (kbd "q") 'quit-window)
+                     )
+                   ;; バッファを表示
+                   (pop-to-buffer buffer))
                (let ((buffer (get-buffer-create "*scratch*")))
                  (pop-to-buffer buffer)
                  (lisp-interaction-mode))))))
