@@ -8,7 +8,7 @@
         (set-buffer buffer)
         (insert str)
         (pop-to-buffer buffer))
-    (let ((buffer (get-buffer-create "*scratch*")))
+    (let ((buffer (get-buffer-create (generate-new-buffer-name "*scratch*"))))
       (pop-to-buffer buffer)
       (lisp-interaction-mode))))
 
