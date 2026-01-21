@@ -17,6 +17,7 @@ setopt hist_ignore_dups     # ignore duplication command history list
 setopt hist_ignore_all_dups # the same command in the past is removed
 setopt share_history        # share command history data
 setopt hist_ignore_space
+setopt PROMPT_SUBST         # プロンプト表示時に$VARや$(...)を展開する
 
 local RED=$'%{\e[1;31m%}'
 local GREEN=$'%{\e[1;32m%}'
@@ -27,9 +28,30 @@ local DEFAULT=$'%{\e[1;m%}'
 
 local PCOLOR=$GREEN
 
-PROMPT=$PCOLOR'[${USER}@${HOSTNAME}]%(!.#.$) '$DEFAULT
+autoload -Uz vcs_info       # vsc_info: git status を反映する。(左プロンプトで使用)
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "(%F{green}%b%c%u$PCOLOR)"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+
+local _HOST=$HOST
+if [[ "$HOST" == "pi" ]]; then
+  _HOST="pi-server"
+fi
+
+# prompt parts
+local _USER_PART="${PCOLOR}[${USER[1,4]}@"
+local _HOST_PART="${CYAN}${_HOST}${PCOLOR}]"
+local _VCS_PART='${vcs_info_msg_0_}'   # ← これは表示時に展開させたいのでクォート
+local _SIGN_PART='%(!.#.$) '
+local _RESET_PART="${DEFAULT}"
+
+# 左プロンプト
+PROMPT="${_USER_PART}${_HOST_PART}${_VCS_PART}${PCOLOR}${_SIGN_PART}${_RESET_PART}"
+# 右プロンプト
 RPROMPT=$RED'[%~]'$DEFAULT
-setopt PROMPT_SUBST
 
 # my abbrev
 typeset -A myabbrev
