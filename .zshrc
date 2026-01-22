@@ -43,7 +43,7 @@ fi
 
 # prompt parts
 local _USER_PART="${PCOLOR}[${USER[1,4]}@"
-local _HOST_PART="${CYAN}${_HOST}${PCOLOR}]"
+local _HOST_PART="${YELLOW}${_HOST}${PCOLOR}]"
 local _VCS_PART='${vcs_info_msg_0_}'   # ← これは表示時に展開させたいのでクォート
 local _SIGN_PART='%(!.#.$) '
 local _RESET_PART="${DEFAULT}"
