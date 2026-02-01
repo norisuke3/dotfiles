@@ -7,9 +7,9 @@
 ;; load init.local if it's exists
 (load (expand-file-name "~/.emacs.d/init.local") t)
 
-(require 'init-loader)
-(setq init-loader-show-log-after-init nil)
-(init-loader-load "~/.emacs.d/inits")
+(when (require 'init-loader nil 'noerror)
+  (setq init-loader-show-log-after-init nil)
+  (init-loader-load "~/.emacs.d/inits"))
 
 ;; Customize の出力先設定
 ;; 【Emacs】init-loaderで初期設定ファイルを整理 | The modern stone age.
