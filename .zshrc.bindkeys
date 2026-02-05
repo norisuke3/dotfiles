@@ -1,24 +1,48 @@
-# GHQ
+#
+# .zshrc.bindkey
+# This file defines zle widgets and key bindings.
+# Most widgets depend on fzf.
+#
+
+# presence check of fzf
+if (( ! $+commands[fzf] )); then
+    echo "fzf is required for bindkey features. Skipping .zshrc.bindkey."
+    return
+fi
+
+
+#
+# fzf-history-selection
+#
+function fzf-history-selection() {
+    BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | fzf --scheme=history --query="$LBUFFER")
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N fzf-history-selection
+bindkey '^R' fzf-history-selection
+
+
+#
+# GHQ (uses fzf)
+#
 function _cd-ghq () {
-  if ! type ghq > /dev/null 2>&1; then
-      echo "ghq is required to run this command. Please install it."
-      zle accept-line
-      return
-  fi
+    if (( ! $+commands[ghq] )); then
+        echo "ghq is required to run this command. Please install it."
+        zle accept-line
+        return
+    fi
 
-  if ! type peco > /dev/null 2>&1; then
-      echo "peco is required to run this command. Please install it."
-      zle accept-line
-      return
-  fi
+    local selected_dir
+    selected_dir=$(ghq list -p | fzf --prompt "GHQ> " --no-sort)
 
-  local selected_dir=$(ghq list -p | peco --prompt "GHQ>")
-  if [ -n "$selected_dir" ]; then
-      BUFFER="cd ${selected_dir}"
-      zle accept-line
-  fi
+    if [[ -n $selected_dir ]]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
 
-  zle clear-screen
+    zle clear-screen
 }
 
 zle -N _cd-ghq
