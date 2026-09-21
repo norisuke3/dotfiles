@@ -35,7 +35,7 @@ function _cd-ghq () {
     fi
 
     local selected_dir
-    selected_dir=$(ghq list -p | fzf --prompt "GHQ> " --no-sort)
+    selected_dir=$(ghq list -p | fzf --prompt "GHQ> " --no-sort -e)
 
     if [[ -n $selected_dir ]]; then
         BUFFER="cd ${selected_dir}"
